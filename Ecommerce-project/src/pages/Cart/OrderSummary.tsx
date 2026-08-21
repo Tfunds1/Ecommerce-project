@@ -1,0 +1,74 @@
+import { useState } from "react";
+import { useCart } from "../../context/CartContext";
+import { useNavigate } from "react-router-dom";
+import { currency } from "../../data/products";
+
+export default function OrderSummary() {
+  const { itemCount, subtotal } = useCart();
+  const [discountCode, setDiscountCode] = useState("");
+  const navigate = useNavigate();
+  return (
+    <aside className="flex h-[525px] flex-col gap-[24px] rounded-2xl border border-[#E5E5E5] p-6">
+      <h2 className="font-['DM_Sans'] text-xl font-bold text-[#171717]">
+        Summary
+      </h2>
+
+      <div className="flex flex-col gap-2.5 font-['DM_Sans'] text-base leading-[24px]">
+        <div className="flex items-center justify-between">
+          <span className="text-[#525252]">Items</span>
+          <span className="text-[#262626]">{itemCount}</span>
+        </div>
+        <div className="flex items-center justify-between">
+          <span className="text-[#262626]">Subtotal</span>
+          <span className="text-[#171717]">{currency.format(subtotal)}</span>
+        </div>
+        <div className="flex items-center justify-between">
+          <span className="text-[#525252]">Delivery</span>
+          <span className="text-[#737373]">Calculated at checkout</span>
+        </div>
+        <div className="flex items-center justify-between">
+          <span className="text-[#525252]">Tax</span>
+          <span className="text-[#737373]">Calculated at checkout</span>
+        </div>
+      </div>
+
+      <div className="flex items-center justify-between border-t border-[#E5E5E5] pt-4 font-['DM_Sans'] text-base font-bold text-[#171717]">
+        <span>Total</span>
+        <span>{currency.format(subtotal)}</span>
+      </div>
+
+      <div className="flex flex-col gap-2">
+        <label
+          htmlFor="discount-code"
+          className="font-['DM_Sans'] text-sm font-medium text-[#171717]"
+        >
+          Discount Code
+        </label>
+        <div className="flex items-center gap-2">
+          <input
+            id="discount-code"
+            type="text"
+            value={discountCode}
+            onChange={(event) => setDiscountCode(event.target.value)}
+            placeholder="Enter code"
+            className="h-11 flex-1 rounded-[12px] border border-[#D4D4D4] px-[16px] py-[14px] font-['DM_Sans'] text-base  outline-none placeholder:text-[#A3A3A3]"
+          />
+          <button
+            type="button"
+            className="h-11 cursor-pointer rounded-full border border-[#E5E5E5] px-5 font-['DM_Sans'] text-sm font-semibold text-[#171717] hover:bg-[#FAFAFA]"
+          >
+            Apply
+          </button>
+        </div>
+      </div>
+
+      <button
+        type="button"
+        onClick={() => navigate("/checkout")}
+        className="h-[52px] cursor-pointer rounded-full bg-[#171717] font-['DM_Sans'] text-sm font-semibold text-white hover:bg-black"
+      >
+        Checkout
+      </button>
+    </aside>
+  );
+}
