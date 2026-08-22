@@ -1,7 +1,7 @@
 import { useRef } from "react";
 
-import chevron from "../../../assets/icons/ri_arrow-left-s-line.svg";
-import { categories, categoriesSecondary } from "../data";
+import chevron from "../../assets/icons/ri_arrow-left-s-line.svg";
+import { categories, categoriesSecondary } from "../../data/data";
 
 export default function CategoryCarousel() {
   const categoryScrollRef = useRef<HTMLDivElement>(null);
