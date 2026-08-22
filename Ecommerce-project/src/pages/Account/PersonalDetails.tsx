@@ -5,9 +5,9 @@ import { useAuth } from "../../context/AuthContext";
 import DeleteAccountModal from "./DeleteaccountModal";
 
 const inputCls =
-  "h-12 w-full rounded-[10px] border border-[#D4D4D4] px-4 font-['DM_Sans'] text-sm text-[#171717] outline-none focus:border-[#171717]";
+  "h-12 w-full rounded-[10px] border border-[#D4D4D4] px-4        text-sm text-[#171717] outline-none focus:border-[#171717]";
 
-const labelCls = "font-['DM_Sans'] text-sm text-[#171717]";
+const labelCls = "       text-sm text-[#171717]";
 const profile = {
   firstName: "Mark",
   lastName: "Jones",
@@ -127,9 +127,7 @@ function PasswordField({
           <img src={eyeIcon} alt="" className="w-[24px] h-[24px]" />
         </button>
       </div>
-      {error && (
-        <p className="font-['DM_Sans'] text-xs text-[#EF4444]">{error}</p>
-      )}
+      {error && <p className="       text-xs text-[#EF4444]">{error}</p>}
     </div>
   );
 }
@@ -203,18 +201,18 @@ export default function PersonalDetails() {
 
   return (
     <div className=" relative flex flex-col gap-[32px] max-w-[549px]">
-      <h1 className="text-[23px] font-bold font-['DM_Sans'] leading-[28px] tracking-[-1] font-[700] text-[#171717]">
+      <h1 className="text-[23px] font-bold        leading-[28px] tracking-[-1] font-[700] text-[#171717]">
         Personal Details
       </h1>
       <section className="p-[24px] ">
         <div className="flex texts-center justify-between">
-          <h3 className="text-base font-['DM_Sans'] leading-[24px] font-semibold text-[#171717]">
+          <h3 className="text-base        leading-[24px] font-semibold text-[#171717]">
             Profile
           </h3>
           <button
             type="button"
             onClick={startEditing}
-            className="cursor-pointer font-['DM_Sans'] font-[500] text-base font-medium leading-[24px] text-[#262626] underline"
+            className="cursor-pointer        font-[500] text-base font-medium leading-[24px] text-[#262626] underline"
           >
             Edit
           </button>
@@ -224,10 +222,10 @@ export default function PersonalDetails() {
           <dl className="mt-[24px] flex flex-col gap-[16px]">
             {PROFILE_ROWS.map(([label, value]) => (
               <div key={label} className="grid grid-cols-[160px_1fr] gap-4">
-                <dt className="font-['DM_Sans'] text-base font-semibold text-[#404040] leading-[24px]">
+                <dt className="       text-base font-semibold text-[#404040] leading-[24px]">
                   {label}
                 </dt>
-                <dd className="font-['DM_Sans'] text-base text-[#404040] leading-[24px]">
+                <dd className="       text-base text-[#404040] leading-[24px]">
                   {value}
                 </dd>
               </div>
@@ -314,7 +312,7 @@ export default function PersonalDetails() {
 
       <div className="flex flex-col gap-[24px] p-[24px]">
         <div className="flex texts-center justify-between">
-          <h3 className="text-base font-['DM_Sans'] leading-[24px] font-semibold text-[#171717]">
+          <h3 className="text-base        leading-[24px] font-semibold text-[#171717]">
             {isChangingPassword ? "Change Password" : "passwords"}
           </h3>
 
@@ -322,7 +320,7 @@ export default function PersonalDetails() {
             <button
               type="button"
               onClick={startChangingPassword}
-              className="cursor-pointer font-['DM_Sans'] font-[500] text-base font-medium leading-[24px] text-[#262626] underline"
+              className="cursor-pointer        font-[500] text-base font-medium leading-[24px] text-[#262626] underline"
             >
               Change Password
             </button>
@@ -330,7 +328,7 @@ export default function PersonalDetails() {
         </div>
 
         {isChangingPassword ? (
-          <p className="font-['DM_Sans'] font-[400] text-base leading-[24px] text-[#404040]">
+          <p className="       font-[400] text-base leading-[24px] text-[#404040]">
             Last changed 2 days ago.
           </p>
         ) : (
@@ -376,14 +374,14 @@ export default function PersonalDetails() {
                 type="button"
                 onClick={savePassword}
                 disabled={!canSavePassword}
-                className="cursor-pointer rounded-full bg-[#171717] px-6 py-2.5 font-['DM_Sans'] text-sm font-medium text-white disabled:cursor-not-allowed disabled:opacity-40"
+                className="cursor-pointer rounded-full bg-[#171717] px-6 py-2.5        text-sm font-medium text-white disabled:cursor-not-allowed disabled:opacity-40"
               >
                 Save Changes
               </button>
               <button
                 type="button"
                 onClick={cancelChangingPassword}
-                className="cursor-pointer rounded-full border border-[#D4D4D4] bg-white px-6 py-2.5 font-['DM_Sans'] text-sm font-medium text-[#171717]"
+                className="cursor-pointer rounded-full border border-[#D4D4D4] bg-white px-6 py-2.5        text-sm font-medium text-[#171717]"
               >
                 Cancel
               </button>
@@ -401,7 +399,7 @@ export default function PersonalDetails() {
         <button
           type="button"
           onClick={() => setConfirmDeleteOpen(true)}
-          className="max-w-[122px] px-[14px] py-[8px] font-['DM_Sans'] font-semibold text-[12px] leading-[16px] rounded-[43px] border border-[#D4D4D4] text-[#EF4444] cursor-pointer"
+          className="max-w-[122px] px-[14px] py-[8px]        font-semibold text-[12px] leading-[16px] rounded-[43px] border border-[#D4D4D4] text-[#EF4444] cursor-pointer"
         >
           Delete Account
         </button>

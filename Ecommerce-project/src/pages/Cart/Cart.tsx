@@ -16,9 +16,7 @@ export default function Cart() {
 
       <main className="flex min-w-0 flex-1 flex-col">
         <section className="mx-auto flex w-full max-w-[1341px] flex-col gap-8 px-[20px] py-[32px]">
-          <h1 className="font-['DM_Sans'] text-2xl font-bold text-[#171717]">
-            Cart
-          </h1>
+          <h1 className="          text-2xl font-bold text-[#171717]">Cart</h1>
 
           {lines.length === 0 ? (
             <div className="flex flex-col items-center gap-3 py-16">
@@ -49,14 +47,14 @@ export default function Cart() {
                     <div className="flex flex-1 flex-col gap-1">
                       <div className="flex justify-between">
                         <div>
-                          <p className="font-['DM_Sans'] text-xl font-medium text-[#262626] leading-[24px]">
+                          <p className="          text-xl font-medium text-[#262626] leading-[24px]">
                             {line.product.title}
                           </p>
-                          <p className="font-['DM_Sans'] text-base font-medium text-[#737373] leading-[24px]">
+                          <p className="          text-base font-medium text-[#737373] leading-[24px]">
                             {line.product.brand}
                           </p>
                         </div>
-                        <span className="font-['DM_Sans'] leading-[22px] text-[20px] font-semibold text-[#171717]">
+                        <span className="          leading-[22px] text-[20px] font-semibold text-[#171717]">
                           {currency.format(line.product.price * line.quantity)}
                         </span>
                       </div>
@@ -68,13 +66,13 @@ export default function Cart() {
                             onClick={() =>
                               updateQuantity(line.lineId, line.quantity - 1)
                             }
-                            className=" w-[28px] h-[28px] cursor-pointer font-['DM_Sans'] rounded-full text-base font-medium text-[#A3A3A3] bg-[#FFFFFF]"
+                            className=" w-[28px] h-[28px] cursor-pointer           rounded-full text-base font-medium text-[#A3A3A3] bg-[#FFFFFF]"
                             disabled={line.quantity <= 1}
                           >
                             −
                           </button>
 
-                          <span className="w-4 text-center font-['DM_Sans'] text-sm font-medium text-[#171717]">
+                          <span className="w-4 text-center           text-sm font-medium text-[#171717]">
                             {line.quantity}
                           </span>
                           <button
@@ -82,13 +80,13 @@ export default function Cart() {
                             onClick={() =>
                               updateQuantity(line.lineId, line.quantity + 1)
                             }
-                            className="w-[28px] h-[28px] cursor-pointer font-['DM_Sans'] rounded-full text-base font-medium text-[#2626263] bg-[#FFFFFF]"
+                            className="w-[28px] h-[28px] cursor-pointer           rounded-full text-base font-medium text-[#2626263] bg-[#FFFFFF]"
                           >
                             +
                           </button>
                         </div>
 
-                        <div className="flex items-center gap-3 font-['DM_Sans'] leading-[20px] text-xs font-medium text-[#404040]">
+                        <div className="flex items-center gap-3           leading-[20px] text-xs font-medium text-[#404040]">
                           <div className="flex gap-[4px]">
                             <img
                               src={heartIcon}

@@ -221,7 +221,7 @@ export default function SavedCards() {
                 }
                 className="h-4 w-4 cursor-pointer rounded border-[#A3A3A3] accent-[#171717]"
               />
-              <span className="font-['DM_Sans'] text-sm text-[#171717]">
+              <span className="          text-sm text-[#171717]">
                 Set as default card
               </span>
             </label>

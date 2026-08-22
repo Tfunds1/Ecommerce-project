@@ -62,7 +62,7 @@ export default function Sidebar() {
                   </span>
                 )}
                 <span
-                  className={`font-['DM_Sans'] text-[14px] leading-[20px] ${
+                  className={`          text-[14px] leading-[20px] ${
                     isActive
                       ? "font-semibold text-[#171717]"
                       : "font-medium text-[#525252]"
@@ -82,7 +82,7 @@ export default function Sidebar() {
           onClick={() => navigate("/account")}
           className="mt-auto flex cursor-pointer flex-col items-center gap-1.5"
         >
-          <div className="flex h-[40px] w-[40px] border border-[#E5E5E5] items-center justify-center rounded-full bg-[#F5F5F5] font-['DM_Sans'] text-[23px]  text-[#525252]">
+          <div className="flex h-[40px] w-[40px] border border-[#E5E5E5] items-center justify-center rounded-full bg-[#F5F5F5]           text-[23px]  text-[#525252]">
             F
           </div>
         </button>
@@ -93,7 +93,7 @@ export default function Sidebar() {
           className="mt-auto flex cursor-pointer flex-col items-center gap-1.5"
         >
           <img src={userLineIcon} alt="" className="w-[24px] h-[24px]" />
-          <span className="font-['DM_Sans'] text-sm font-[400] text-[#525252] leading-[20px]">
+          <span className="          text-sm font-[400] text-[#525252] leading-[20px]">
             Sign in
           </span>
         </button>

@@ -22,7 +22,7 @@ export default function AccountLayout() {
       <main className="px-[120px] py-[64px]">
         <div className="flex max-w-[1090px] gap-[88px]">
           <div className="flex w-[222px] flex-col gap-[32px]">
-            <h1 className="font-['DM_Sans'] text-[28px] font-semibold leading-[36px] text-[#171717]">
+            <h1 className="          text-[28px] font-semibold leading-[36px] text-[#171717]">
               My Account
             </h1>
 
@@ -33,7 +33,7 @@ export default function AccountLayout() {
                   to={link.to}
                   end={link.end}
                   className={({ isActive }) =>
-                    `p-[8px] font-['DM_Sans'] text-sm ${
+                    `p-[8px]           text-sm ${
                       isActive
                         ? "font-semibold text-[#171717]"
                         : "text-[#525252] hover:text-[#171717]"
@@ -52,7 +52,7 @@ export default function AccountLayout() {
               onClick={() => {
                 signOut();
               }}
-              className="flex cursor-pointer p-[8px] font-['DM_Sans'] text-sm text-[#525252] hover:text-[#171717]"
+              className="flex cursor-pointer p-[8px]           text-sm text-[#525252] hover:text-[#171717]"
             >
               Sign Out
             </button>

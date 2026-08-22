@@ -4,12 +4,6 @@ import { useNavigate } from "react-router-dom";
 import { currency } from "../../data/products";
 
 type OrderSummaryProps = {
-  /**
-   * Set to false when this component is rendered on the Checkout page
-   * itself, since a "Checkout" button that navigates to /checkout is
-   * redundant (and slightly confusing) once you're already there.
-   * Defaults to true so the Cart page usage needs no changes.
-   */
   showCheckoutButton?: boolean;
 };
 
@@ -21,11 +15,9 @@ export default function OrderSummary({
   const navigate = useNavigate();
   return (
     <aside className="flex h-[525px] flex-col gap-[24px] rounded-[12px] border border-[#E5E5E5] p-[32px]">
-      <h2 className="font-['DM_Sans'] text-xl font-bold text-[#171717]">
-        Summary
-      </h2>
+      <h2 className="          text-xl font-bold text-[#171717]">Summary</h2>
 
-      <div className="flex flex-col gap-2.5 font-['DM_Sans'] text-base leading-[24px]">
+      <div className="flex flex-col gap-2.5           text-base leading-[24px]">
         <div className="flex items-center justify-between">
           <span className="text-[#525252]">Items</span>
           <span className="text-[#262626]">{itemCount}</span>
@@ -65,11 +57,11 @@ export default function OrderSummary({
             value={discountCode}
             onChange={(event) => setDiscountCode(event.target.value)}
             placeholder="Enter code"
-            className="h-11 flex-1 rounded-[12px] border border-[#D4D4D4] px-[16px] py-[14px] font-['DM_Sans'] text-base  outline-none placeholder:text-[#A3A3A3]"
+            className="h-11 flex-1 rounded-[12px] border border-[#D4D4D4] px-[16px] py-[14px]           text-base  outline-none placeholder:text-[#A3A3A3]"
           />
           <button
             type="button"
-            className="h-11 cursor-pointer rounded-full border border-[#E5E5E5] px-5 font-['DM_Sans'] text-sm font-semibold text-[#171717] hover:bg-[#FAFAFA]"
+            className="h-11 cursor-pointer rounded-full border border-[#E5E5E5] px-5           text-sm font-semibold text-[#171717] hover:bg-[#FAFAFA]"
           >
             Apply
           </button>
@@ -80,7 +72,7 @@ export default function OrderSummary({
         <button
           type="button"
           onClick={() => navigate("/checkout")}
-          className="h-[52px] cursor-pointer rounded-full bg-[#171717] font-['DM_Sans'] text-sm font-semibold text-white hover:bg-black"
+          className="h-[52px] cursor-pointer rounded-full bg-[#171717]           text-sm font-semibold text-white hover:bg-black"
         >
           Checkout
         </button>

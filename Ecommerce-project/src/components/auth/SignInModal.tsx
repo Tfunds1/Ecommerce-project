@@ -10,10 +10,10 @@ import gradient from "../../assets/Gradient.png";
 import { useAuth } from "../../context/AuthContext";
 
 const socialButtonClass =
-  "flex w-[475px] h-[56px] font-['DM_Sans'] items-center justify-center gap-[16px] rounded-[43px] border-[1px] border-gray-200 py-[16px] px-[40px] text-base font-medium text-[#262626] font-500 hover:bg-gray-50";
+  "flex w-[475px] h-[56px]           items-center justify-center gap-[16px] rounded-[43px] border-[1px] border-gray-200 py-[16px] px-[40px] text-base font-medium text-[#262626] font-500 hover:bg-gray-50";
 
 const nextButtonClass = (enabled: boolean) =>
-  `w-[475px] h-[56px] rounded-[43px] py-[16px] px-[40px] font-semibold text-base font-['DM_Sans'] leading-[23px] font-600 ${
+  `w-[475px] h-[56px] rounded-[43px] py-[16px] px-[40px] font-semibold text-base           leading-[23px] font-600 ${
     enabled
       ? "bg-black text-white cursor-pointer"
       : "bg-[#E5E5E5] text-[#FAFAFA]"
@@ -84,14 +84,14 @@ export default function SignInModal({ onClose }: { onClose: () => void }) {
 
         {step === "email" ? (
           <>
-            <h1 className="w-[199px] font-['DM_Sans'] text-[23px] font-bold leading-[28px] tracking-[-0.01em] text-[#171717]">
+            <h1 className="w-[199px]           text-[23px] font-bold leading-[28px] tracking-[-0.01em] text-[#171717]">
               Sign in to Shoppii
             </h1>
 
             <div>
               <label
                 htmlFor="modal-email"
-                className="mb-1 block h-5 w-[475px] font-['DM_Sans'] text-sm font-medium leading-5 tracking-normal text-[#525252]"
+                className="mb-1 block h-5 w-[475px]           text-sm font-medium leading-5 tracking-normal text-[#525252]"
               >
                 Email Address
               </label>
@@ -134,7 +134,7 @@ export default function SignInModal({ onClose }: { onClose: () => void }) {
           </>
         ) : (
           <>
-            <h1 className="font-['DM_Sans'] text-[23px] font-bold leading-[28px] tracking-[-0.01em] text-[#171717]">
+            <h1 className="          text-[23px] font-bold leading-[28px] tracking-[-0.01em] text-[#171717]">
               Welcome back
             </h1>
 
@@ -149,7 +149,7 @@ export default function SignInModal({ onClose }: { onClose: () => void }) {
                 type="button"
                 disabled={isLoading}
                 onClick={() => setStep("email")}
-                className="absolute right-4 top-1/2 -translate-y-1/2 cursor-pointer font-['DM_Sans'] text-xs font-semibold text-[#262626] disabled:cursor-not-allowed disabled:opacity-50"
+                className="absolute right-4 top-1/2 -translate-y-1/2 cursor-pointer           text-xs font-semibold text-[#262626] disabled:cursor-not-allowed disabled:opacity-50"
               >
                 Change Email
               </button>
@@ -158,7 +158,7 @@ export default function SignInModal({ onClose }: { onClose: () => void }) {
             <div>
               <label
                 htmlFor="modal-password"
-                className="mb-1 block font-['DM_Sans'] text-sm font-medium leading-5 text-[#525252]"
+                className="mb-1 block           text-sm font-medium leading-5 text-[#525252]"
               >
                 Password
               </label>
@@ -189,7 +189,7 @@ export default function SignInModal({ onClose }: { onClose: () => void }) {
               type="button"
               disabled={!isPasswordValid || isLoading}
               onClick={handleSignIn}
-              className={`flex items-center justify-center rounded-[43px] py-[16px] px-[40px] font-semibold text-base font-['DM_Sans'] leading-[23px] font-600 w-[475px] h-[56px] ${
+              className={`flex items-center justify-center rounded-[43px] py-[16px] px-[40px] font-semibold text-base           leading-[23px] font-600 w-[475px] h-[56px] ${
                 isLoading
                   ? "bg-[#737373] text-white cursor-not-allowed"
                   : isPasswordValid

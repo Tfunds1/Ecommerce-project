@@ -42,7 +42,7 @@ export default function SearchInput({
           }
         }}
         placeholder="Search products..."
-        className={`h-[68px] w-[568px] border-t border-l border-r border-[#E5E5E5] bg-[#FFFFFF] py-[10px] px-[24px] font-['DM_Sans'] text-[18px] font-[400] leading-[24px] text-[#171717] shadow-[0px_2px_4px_0px_#0000001A] outline-none placeholder:text-[18px] placeholder:text-[#A3A3A3]  ${
+        className={`h-[68px] w-[568px] border-t border-l border-r border-[#E5E5E5] bg-[#FFFFFF] py-[10px] px-[24px]           text-[18px] font-[400] leading-[24px] text-[#171717] shadow-[0px_2px_4px_0px_#0000001A] outline-none placeholder:text-[18px] placeholder:text-[#A3A3A3]  ${
           isOpen ? "rounded-t-[34px] rounded-b-none  " : "rounded-full"
         }`}
       />
@@ -72,7 +72,7 @@ export default function SearchInput({
                 setQuery(suggestion);
                 runSearch(suggestion);
               }}
-              className="flex w-full cursor-pointer items-center gap-3 px-5 py-2.5 font-['DM_Sans'] text-sm text-[#404040] hover:bg-[#FAFAFA]"
+              className="flex w-full cursor-pointer items-center gap-3 px-5 py-2.5           text-sm text-[#404040] hover:bg-[#FAFAFA]"
             >
               <img src={historyIcon} alt="" className="h-4 w-4 opacity-50" />
               {suggestion}

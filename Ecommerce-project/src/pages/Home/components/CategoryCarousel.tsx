@@ -27,7 +27,7 @@ export default function CategoryCarousel() {
               alt={category.label}
               className="h-[100px] w-[242.6px] rounded-xl object-cover"
             />
-            <span className="absolute bottom-3 left-4 font-['DM_Sans'] text-xl font-semibold leading-[24px] text-white">
+            <span className="absolute bottom-3 left-4           text-xl font-semibold leading-[24px] text-white">
               {category.label}
             </span>
           </button>
@@ -38,7 +38,7 @@ export default function CategoryCarousel() {
             key={`${category.label}-secondary`}
             className="flex h-[112px] w-[233px] shrink-0 items-center justify-between gap-[10px] overflow-hidden rounded-[12px] bg-[#F5F5F5] p-[16px] shadow-[0px_4px_20px_0px_#0000000A]"
           >
-            <span className="font-['DM_Sans'] text-base font-semibold leading-[20px] text-[#171717]">
+            <span className="          text-base font-semibold leading-[20px] text-[#171717]">
               {category.label}
             </span>
             <img
