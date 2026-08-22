@@ -31,7 +31,7 @@ export default function Cart() {
               </Link>
             </div>
           ) : (
-            <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1fr_360px]">
+            <div className="grid grid-cols-1 gap-8 lg:grid-cols-[1fr_447px]">
               <div className="flex flex-col divide-y divide-[#E5E5E5]">
                 {lines.map((line) => (
                   <div

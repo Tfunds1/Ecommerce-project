@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import wishlistIcon from "../../assets/icons/ri_heart-3-line.png";
+import wishlistIcon from "../../assets/icons/ri_heart-3-fill.png";
 import { currency, type Product } from "../../data/products";
 import Stars from "../../components/product/Stars";
 import { useWishlist } from "./WishlistContext";
@@ -28,17 +28,19 @@ export default function WishlistCard({ product }: { product: Product }) {
           to={`/product/${product.id}`}
           className="flex h-full w-full items-center justify-center"
         >
-          {product.image ? (
-            <img
-              src={product.image}
-              alt={product.title}
-              className="h-[232px] w-[239.4px] object-contain"
-            />
-          ) : (
-            <span className="px-4 text-center text-xs text-gray-400">
-              {product.title}
-            </span>
-          )}
+          <div className=" border border-[#E5E5E5] rounded-[12px]    ">
+            {product.image ? (
+              <img
+                src={product.image}
+                alt={product.title}
+                className="h-[232px] w-[239.4px] object-contain"
+              />
+            ) : (
+              <span className="px-4 text-center text-xs text-gray-400">
+                {product.title}
+              </span>
+            )}
+          </div>
         </Link>
       </div>
 

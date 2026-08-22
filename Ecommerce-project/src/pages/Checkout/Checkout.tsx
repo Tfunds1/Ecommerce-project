@@ -33,8 +33,8 @@ type CheckoutStep = {
 };
 
 const inputCls =
-  "h-12 w-full rounded-[10px] border border-[#A3A3A3] px-4 font-['DM_Sans'] text-sm text-[#171717] outline-none focus:border-[#171717]";
-const labelCls = "font-['DM_Sans'] text-sm text-[#171717]";
+  "h-12 w-full rounded-[10px] border border-[#A3A3A3] px-4      text-sm text-[#171717] outline-none focus:border-[#171717]";
+const labelCls = "     text-sm text-[#171717]";
 
 const emptyShipping: ShippingAddress = {
   firstName: "",
@@ -216,7 +216,7 @@ export default function Checkout() {
         <button
           type="button"
           onClick={() => navigate(-1)}
-          className="flex w-[80px] h-[40px] cursor-pointer items-center gap-1 font-['DM_Sans'] text-sm font-medium text-[#525252] hover:text-[#171717] ml-[64px]"
+          className="flex w-[80px] h-[40px] cursor-pointer items-center gap-1      text-sm font-medium text-[#525252] hover:text-[#171717] ml-[64px]"
         >
           <img src={arrowLeft} alt="" className="h-5 w-5" />
           Back
@@ -225,11 +225,9 @@ export default function Checkout() {
         <img src={logo} alt="UD Stores" className="mx-auto h-[48px] w-[63px]" />
       </header>
 
-      <div className="grid grid-cols-1 gap-[40px] lg:grid-cols-[1fr_360px] max-w-[1440px] px-[200px] py-[40px]">
+      <div className="grid grid-cols-1 gap-[40px] lg:grid-cols-[1fr_500px] max-w-[1440px] px-[200px] py-[40px]">
         <div className="flex w-[500px] flex-col gap-[24px]">
-          <h1 className="font-['DM_Sans'] text-2xl font-bold text-[#171717]">
-            Checkout
-          </h1>
+          <h1 className="     text-2xl font-bold text-[#171717]">Checkout</h1>
 
           <div className="flex flex-col gap-[32px]">
             {steps.map((step) => {
@@ -238,20 +236,20 @@ export default function Checkout() {
                 <div key={step.number}>
                   <div className="flex items-start gap-[16px]">
                     <div className="flex h-6 items-center">
-                      <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#E5E5E5] font-['DM_Sans'] text-xs font-medium text-[#171717]">
+                      <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#E5E5E5]      text-xs font-medium text-[#171717]">
                         {step.number}
                       </div>
                     </div>
 
                     <div className="flex flex-1 items-center justify-between">
-                      <h2 className="font-['DM_Sans'] text-base font-semibold text-[#171717]">
+                      <h2 className="text-[18px] font-[400] leading-[24px] text-[#262626]">
                         {step.title}
                       </h2>
                       {!isOpen && step.hasForm && (
                         <button
                           type="button"
                           onClick={() => openStep(step.number)}
-                          className="cursor-pointer font-['DM_Sans'] text-sm font-medium text-[#171717] underline"
+                          className="cursor-pointer font-[500]  text-sm font-medium text-[#262626] underline"
                         >
                           Edit
                         </button>
@@ -262,10 +260,7 @@ export default function Checkout() {
                   {!isOpen && step.summary.length > 0 && (
                     <div className="mt-1 flex flex-col gap-0.5 pl-[36px]">
                       {step.summary.map((line) => (
-                        <p
-                          key={line}
-                          className="font-['DM_Sans'] text-sm text-[#525252]"
-                        >
+                        <p key={line} className="text-sm text-[#525252]">
                           {line}
                         </p>
                       ))}
@@ -307,7 +302,7 @@ export default function Checkout() {
                       <button
                         type="button"
                         onClick={saveContact}
-                        className="mt-1 cursor-pointer self-start rounded-full bg-[#171717] px-6 py-2.5 font-['DM_Sans'] text-sm font-medium text-white"
+                        className="mt-1 cursor-pointer self-start rounded-full bg-[#171717] px-6 py-2.5      text-sm font-medium text-white"
                       >
                         Save
                       </button>
@@ -474,7 +469,7 @@ export default function Checkout() {
                           }
                           className="h-4 w-4 cursor-pointer rounded border-[#D4D4D4] accent-[#171717]"
                         />
-                        <span className="font-['DM_Sans'] text-sm text-[#171717]">
+                        <span className="     text-sm text-[#171717]">
                           Use a different billing address
                         </span>
                       </label>
@@ -495,14 +490,14 @@ export default function Checkout() {
                               notes: e.target.value,
                             })
                           }
-                          className="resize-none rounded-[10px] bg-[#F5F5F5] p-4 font-['DM_Sans'] text-sm text-[#171717] outline-none placeholder:text-[#A3A3A3]"
+                          className="resize-none rounded-[10px] bg-[#F5F5F5] p-4      text-sm text-[#171717] outline-none placeholder:text-[#A3A3A3]"
                         />
                       </div>
 
                       <button
                         type="button"
                         onClick={saveShipping}
-                        className="mt-1 cursor-pointer self-center rounded-full border border-[#D4D4D4] bg-white px-8 py-2.5 font-['DM_Sans'] text-sm font-medium text-[#171717]"
+                        className="mt-1 cursor-pointer self-center rounded-full border border-[#D4D4D4] bg-white px-8 py-2.5      text-sm font-medium text-[#171717]"
                       >
                         Save Address
                       </button>
@@ -538,14 +533,14 @@ export default function Checkout() {
                               )}
                             </span>
                             <span className="flex flex-col gap-0.5">
-                              <span className="font-['DM_Sans'] text-base font-medium text-[#171717]">
+                              <span className="     text-base font-medium text-[#171717]">
                                 {m.label}
                               </span>
-                              <span className="font-['DM_Sans'] text-sm text-[#737373]">
+                              <span className="     text-sm text-[#737373]">
                                 {m.eta}
                               </span>
                             </span>
-                            <span className="ml-auto font-['DM_Sans'] text-base font-semibold text-[#171717]">
+                            <span className="ml-auto      text-base font-semibold text-[#171717]">
                               ₦{m.price}
                             </span>
                           </label>
@@ -556,7 +551,7 @@ export default function Checkout() {
                         type="button"
                         onClick={saveMethod}
                         disabled={!methodDraft}
-                        className="mt-1 cursor-pointer self-start rounded-full bg-[#171717] px-6 py-2.5 font-['DM_Sans'] text-sm font-medium text-white disabled:cursor-not-allowed disabled:opacity-40"
+                        className="mt-1 cursor-pointer self-start rounded-full bg-[#171717] px-6 py-2.5      text-sm font-medium text-white disabled:cursor-not-allowed disabled:opacity-40"
                       >
                         Save
                       </button>
@@ -592,7 +587,7 @@ export default function Checkout() {
                                   <span className="h-3 w-3 rounded-full bg-[#171717]" />
                                 )}
                               </span>
-                              <span className="font-['DM_Sans'] text-base font-medium text-[#171717]">
+                              <span className="     text-base font-medium text-[#171717]">
                                 {p.label}
                               </span>
                               <img
@@ -675,7 +670,7 @@ export default function Checkout() {
                                       />
                                       <span
                                         title="The 3-digit code on the back of your card"
-                                        className="absolute right-4 top-1/2 flex h-5 w-5 -translate-y-1/2 cursor-help items-center justify-center rounded-full border border-[#A3A3A3] font-['DM_Sans'] text-[11px] text-[#737373]"
+                                        className="absolute right-4 top-1/2 flex h-5 w-5 -translate-y-1/2 cursor-help items-center justify-center rounded-full border border-[#A3A3A3]      text-[11px] text-[#737373]"
                                       >
                                         ?
                                       </span>
@@ -695,7 +690,7 @@ export default function Checkout() {
                                     }
                                     className="h-4 w-4 cursor-pointer rounded border-[#A3A3A3] accent-[#171717]"
                                   />
-                                  <span className="font-['DM_Sans'] text-sm text-[#171717]">
+                                  <span className="     text-sm text-[#171717]">
                                     Set as default card
                                   </span>
                                 </label>
@@ -709,7 +704,7 @@ export default function Checkout() {
                         type="button"
                         onClick={placeOrder}
                         disabled={!paymentDraft}
-                        className="mt-2 h-[52px] w-full cursor-pointer rounded-full bg-[#171717] font-['DM_Sans'] text-sm font-medium text-white disabled:cursor-not-allowed disabled:opacity-40"
+                        className="mt-2 h-[52px] w-full cursor-pointer rounded-full bg-[#171717]      text-sm font-medium text-white disabled:cursor-not-allowed disabled:opacity-40"
                       >
                         Place Order
                       </button>
@@ -721,7 +716,7 @@ export default function Checkout() {
           </div>
         </div>
 
-        <OrderSummary />
+        <OrderSummary showCheckoutButton={false} />
       </div>
     </div>
   );

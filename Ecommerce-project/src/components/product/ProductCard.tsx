@@ -5,7 +5,7 @@ import Stars from "./Stars";
 export default function ProductCard({ product }: { product: Product }) {
   return (
     <Link to={`/product/${product.id}`} className="mb-[32px] block w-full">
-      <div className="flex h-[190px] items-center justify-center overflow-hidden rounded-xl border-[#E5E5E5] bg-[#F5F5F5]">
+      <div className=" border border-[#E5E5E5] rounded-[12px] ">
         {product.image ? (
           <img
             src={product.image}
@@ -18,20 +18,20 @@ export default function ProductCard({ product }: { product: Product }) {
           </span>
         )}
       </div>
-      <div className="flex flex-col gap-[8px] px-[8px] py-[12px]">
-        <p className="font-['DM_Sans'] text-[12px] font-[600] font-semibold leading-[18px] tracking-[-0.2] text-[#A3A3A3]">
+      <div className="flex flex-col gap-[4px] px-[8px] py-[12px]">
+        <p className=" text-[12px] font-[600] font-semibold leading-[18px] tracking-[-0.2] text-[#A3A3A3]">
           {product.brand}
         </p>
-        <p className="font-['DM_Sans'] text-sm font-[400] leading-[20px] text-[#262626]">
+        <p className="  text-sm font-[400] leading-[20px] text-[#262626]">
           {product.title}
         </p>
-        <div className="flex items-center gap-1.5">
+        <div className="flex items-center gap-[8px]">
           <Stars rating={product.rating} />
-          <span className="font-['DM_Sans'] text-xs text-gray-400">
+          <span className=" font-[400] leading-[18px]  text-[12px] text-[#262626]">
             ({product.reviews})
           </span>
         </div>
-        <p className="font-['DM_Sans'] text-base font-[600] font-semibold leading-[24px] text-[#262626]">
+        <p className="  text-base font-[600] font-semibold leading-[24px] text-[#262626]">
           {currency.format(product.price)}
         </p>
       </div>

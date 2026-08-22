@@ -3,12 +3,24 @@ import { useCart } from "../../context/CartContext";
 import { useNavigate } from "react-router-dom";
 import { currency } from "../../data/products";
 
-export default function OrderSummary() {
+type OrderSummaryProps = {
+  /**
+   * Set to false when this component is rendered on the Checkout page
+   * itself, since a "Checkout" button that navigates to /checkout is
+   * redundant (and slightly confusing) once you're already there.
+   * Defaults to true so the Cart page usage needs no changes.
+   */
+  showCheckoutButton?: boolean;
+};
+
+export default function OrderSummary({
+  showCheckoutButton = true,
+}: OrderSummaryProps) {
   const { itemCount, subtotal } = useCart();
   const [discountCode, setDiscountCode] = useState("");
   const navigate = useNavigate();
   return (
-    <aside className="flex h-[525px] flex-col gap-[24px] rounded-2xl border border-[#E5E5E5] p-6">
+    <aside className="flex h-[525px] flex-col gap-[24px] rounded-[12px] border border-[#E5E5E5] p-[32px]">
       <h2 className="font-['DM_Sans'] text-xl font-bold text-[#171717]">
         Summary
       </h2>
@@ -19,8 +31,10 @@ export default function OrderSummary() {
           <span className="text-[#262626]">{itemCount}</span>
         </div>
         <div className="flex items-center justify-between">
-          <span className="text-[#262626]">Subtotal</span>
-          <span className="text-[#171717]">{currency.format(subtotal)}</span>
+          <span className=" font-[400] text-[#262626]">Subtotal</span>
+          <span className=" font-[500] font-medium text-[#171717]">
+            {currency.format(subtotal)}
+          </span>
         </div>
         <div className="flex items-center justify-between">
           <span className="text-[#525252]">Delivery</span>
@@ -32,7 +46,7 @@ export default function OrderSummary() {
         </div>
       </div>
 
-      <div className="flex items-center justify-between border-t border-[#E5E5E5] pt-4 font-['DM_Sans'] text-base font-bold text-[#171717]">
+      <div className="flex items-center justify-between border-t border-[#E5E5E5] pt-4  text-base font-bold font-700 mb-[14px] text-[#262626]">
         <span>Total</span>
         <span>{currency.format(subtotal)}</span>
       </div>
@@ -40,7 +54,7 @@ export default function OrderSummary() {
       <div className="flex flex-col gap-2">
         <label
           htmlFor="discount-code"
-          className="font-['DM_Sans'] text-sm font-medium text-[#171717]"
+          className=" text-sm font-medium text-[#525252] font-[500] leading-[20px]"
         >
           Discount Code
         </label>
@@ -62,13 +76,15 @@ export default function OrderSummary() {
         </div>
       </div>
 
-      <button
-        type="button"
-        onClick={() => navigate("/checkout")}
-        className="h-[52px] cursor-pointer rounded-full bg-[#171717] font-['DM_Sans'] text-sm font-semibold text-white hover:bg-black"
-      >
-        Checkout
-      </button>
+      {showCheckoutButton && (
+        <button
+          type="button"
+          onClick={() => navigate("/checkout")}
+          className="h-[52px] cursor-pointer rounded-full bg-[#171717] font-['DM_Sans'] text-sm font-semibold text-white hover:bg-black"
+        >
+          Checkout
+        </button>
+      )}
     </aside>
   );
 }
