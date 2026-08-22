@@ -1,4 +1,4 @@
-import logoIcon from "../../../assets/logos/logo 2.svg";
+import logoIcon from "../../assets/logos/logo 2.svg";
 import SearchInput from "../../components/search/SearchInput";
 
 export default function HeroSearch() {
