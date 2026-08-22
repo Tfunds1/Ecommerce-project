@@ -1,6 +1,6 @@
 import chevron from "../../../assets/icons/ri_arrow-left-s-line.svg";
-import ProductCard from "../../../components/product/ProductCard";
-import type { Product } from "../../../data/products";
+import ProductCard from "../../components/product/ProductCard";
+import type { Product } from "../../data/products";
 
 export default function ProductSection({
   title,

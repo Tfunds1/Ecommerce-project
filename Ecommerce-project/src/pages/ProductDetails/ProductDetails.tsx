@@ -3,7 +3,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import Sidebar from "../../components/layout/Sidebar";
 
 import SearchInput from "../../components/search/SearchInput";
-import ProductSection from "../Home/components/ProductSection";
+import ProductSection from "../Home/ProductSection";
 import { currency, products } from "../../data/products";
 import earpodImage1 from "../../assets/images/Image Area (1).png";
 import earpodImage2 from "../../assets/images/Image Area (2).png";

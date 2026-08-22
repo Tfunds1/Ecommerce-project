@@ -9,3 +9,12 @@ body {
   padding: 0;
   font-family: "DM Sans";
 }
+
+/**************************/
+/* GENRAL REUSABLE COMPONENTS */
+/**************************/
+
+.container {
+  max-width: 1341px;
+  margin: 0 auto;
+}
