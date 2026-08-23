@@ -12,10 +12,10 @@ export default function ProductSection({
   return (
     <section className="flex flex-col gap-4">
       <div className="flex items-center justify-between">
-        <h2 className="          text-lg font-bold text-[#171717]">{title}</h2>
+        <h2 className="text-lg font-bold text-[#171717]">{title}</h2>
         <button
           type="button"
-          className="flex cursor-pointer items-center gap-0.5           text-sm font-medium text-[#525252] hover:text-black"
+          className="flex cursor-pointer items-center gap-0.5 text-sm font-medium text-[#525252] hover:text-black"
         >
           See all
           <img src={chevron} alt="" className="h-4 w-4 -scale-x-100" />

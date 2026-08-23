@@ -72,7 +72,7 @@ export default function OrderSummary({
         <button
           type="button"
           onClick={() => navigate("/checkout")}
-          className="h-[52px] cursor-pointer rounded-full bg-[#171717]           text-sm font-semibold text-white hover:bg-black"
+          className="h-[52px] cursor-pointer rounded-full bg-[#171717]  text-sm font-semibold text-white hover:bg-black"
         >
           Checkout
         </button>

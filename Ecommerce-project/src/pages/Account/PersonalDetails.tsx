@@ -7,7 +7,7 @@ import DeleteAccountModal from "./DeleteaccountModal";
 const inputCls =
   "h-12 w-full rounded-[10px] border border-[#D4D4D4] px-4        text-sm text-[#171717] outline-none focus:border-[#171717]";
 
-const labelCls = "       text-sm text-[#171717]";
+const labelCls = "  text-sm text-[#171717]";
 const profile = {
   firstName: "Mark",
   lastName: "Jones",

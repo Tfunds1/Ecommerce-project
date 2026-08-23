@@ -131,10 +131,23 @@ export default function SignInModal({ onClose }: { onClose: () => void }) {
               <img src={appleIcon} alt="" className="h-5 w-5" />
               Continue with Apple
             </button>
+            <p className=" flex gap-[4px]  justify-center font-['DM_Sans'] font-400 leading-[24px]  text-base text-[#262626]">
+              New to Shoppii?
+              <a
+                href="#"
+                onClick={(e) => {
+                  e.preventDefault();
+                  navigate("/signup");
+                }}
+                className="text-base font-['DM_Sans'] font-500 leading-[24px] text-[#262626] underline"
+              >
+                Create an account
+              </a>
+            </p>
           </>
         ) : (
-          <>
-            <h1 className="          text-[23px] font-bold leading-[28px] tracking-[-0.01em] text-[#171717]">
+          <div>
+            <h1 className=" text-[23px] font-bold leading-[28px] tracking-[-0.01em] text-[#171717]">
               Welcome back
             </h1>
 
@@ -207,7 +220,7 @@ export default function SignInModal({ onClose }: { onClose: () => void }) {
                 "Sign In"
               )}
             </button>
-          </>
+          </div>
         )}
       </div>
     </div>,
