@@ -118,9 +118,9 @@ export default function SignInModal({ onClose }: { onClose: () => void }) {
             </button>
 
             <div className="flex items-center gap-3 m-auto text-xs text-gray-400">
-              <div className="w-[194px] h-[2px] bg-gray-200" />
+              <div className="w-[195px] h-[2px] bg-gray-200" />
               OR
-              <div className="w-[194px] h-[2px] bg-gray-200" />
+              <div className="w-[195px] h-[2px] bg-gray-200" />
             </div>
 
             <button type="button" className={socialButtonClass}>
