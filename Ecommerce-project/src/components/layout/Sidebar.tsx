@@ -108,7 +108,10 @@ export default function Sidebar() {
       )}
 
       {authOpen === "signup" && (
-        <SignUpModal onClose={() => setAuthOpen(null)} />
+        <SignUpModal
+          onClose={() => setAuthOpen(null)}
+          onSignIn={() => setAuthOpen("signin")}
+        />
       )}
     </aside>
   );
