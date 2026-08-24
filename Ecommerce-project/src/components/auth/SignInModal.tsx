@@ -68,7 +68,8 @@ export default function SignInModal({ onClose }: { onClose: () => void }) {
       onClick={onClose}
     >
       <div
-        className="relative flex w-[555px] flex-col gap-6 rounded-xl border border-gray-200 bg-white pt-10 pr-10 pb-16 pl-10 shadow-xl"
+        className="relative flex w-[555px] flex-col gap-[24px] rounded-[12px] border border-[#D4D4D4] bg-white pt-[40px] px-[40px] pb-[64px] shadow-[0px 2px 4px 0px #0000000D] shadow-[0px 20px 35px 0px #00000026]
+"
         onClick={(e) => e.stopPropagation()}
       >
         <button
@@ -122,15 +123,16 @@ export default function SignInModal({ onClose }: { onClose: () => void }) {
               OR
               <div className="w-[195px] h-[2px] bg-gray-200" />
             </div>
-
-            <button type="button" className={socialButtonClass}>
-              <img src={googleIcon} alt="" className="h-5 w-5" />
-              Continue with Google
-            </button>
-            <button type="button" className={socialButtonClass}>
-              <img src={appleIcon} alt="" className="h-5 w-5" />
-              Continue with Apple
-            </button>
+            <div className="flex flex-col gap-[10px]">
+              <button type="button" className={socialButtonClass}>
+                <img src={googleIcon} alt="" className="h-5 w-5" />
+                Continue with Google
+              </button>
+              <button type="button" className={socialButtonClass}>
+                <img src={appleIcon} alt="" className="h-5 w-5" />
+                Continue with Apple
+              </button>
+            </div>
             <p className=" flex gap-[4px]  justify-center font-['DM_Sans'] font-400 leading-[24px]  text-base text-[#262626]">
               New to Shoppii?
               <a
@@ -146,23 +148,24 @@ export default function SignInModal({ onClose }: { onClose: () => void }) {
             </p>
           </>
         ) : (
-          <div>
-            <h1 className=" text-[23px] font-bold leading-[28px] tracking-[-0.01em] text-[#171717]">
+          <div className="flex flex-col gap-6">
+            <h1 className="text-[23px] font-bold leading-[28px] tracking-[-0.01em] text-[#171717]">
               Welcome back
             </h1>
 
-            <div className="relative flex text-center">
+            <div className="relative">
               <input
                 type="email"
                 value={email}
                 disabled
-                className="h-[48px] w-[475px] rounded-xl border border-gray-200 bg-gray-50 px-4 text-sm text-[#525252] outline-none"
+                className="h-[48px] w-full rounded-xl border border-gray-200 bg-gray-50 px-4 text-sm text-[#525252] outline-none"
               />
+
               <button
                 type="button"
                 disabled={isLoading}
                 onClick={() => setStep("email")}
-                className="absolute right-4 top-1/2 -translate-y-1/2 cursor-pointer           text-xs font-semibold text-[#262626] disabled:cursor-not-allowed disabled:opacity-50"
+                className="absolute right-4 top-1/2 -translate-y-1/2 cursor-pointer text-xs font-semibold text-[#262626] disabled:cursor-not-allowed disabled:opacity-50"
               >
                 Change Email
               </button>
@@ -171,11 +174,12 @@ export default function SignInModal({ onClose }: { onClose: () => void }) {
             <div>
               <label
                 htmlFor="modal-password"
-                className="mb-1 block           text-sm font-medium leading-5 text-[#525252]"
+                className="mb-1 block text-sm font-medium leading-5 text-[#525252]"
               >
                 Password
               </label>
-              <div className="relative flex text-center">
+
+              <div className="relative">
                 <input
                   id="modal-password"
                   type={showPassword ? "text" : "password"}
@@ -185,8 +189,9 @@ export default function SignInModal({ onClose }: { onClose: () => void }) {
                     if (e.key === "Enter") handleSignIn();
                   }}
                   placeholder="Enter password"
-                  className="h-[56px] w-[475px] rounded-xl border border-gray-200 px-4 pr-12 text-sm text-[#171717] outline-none placeholder:text-[#A3A3A3]"
+                  className="h-[56px] w-full rounded-xl border border-gray-200 px-4 pr-12 text-sm text-[#171717] outline-none placeholder:text-[#A3A3A3]"
                 />
+
                 <button
                   type="button"
                   aria-label={showPassword ? "Hide password" : "Show password"}
@@ -196,17 +201,26 @@ export default function SignInModal({ onClose }: { onClose: () => void }) {
                   <img src={eyeIcon} alt="" className="h-6 w-6" />
                 </button>
               </div>
+
+              <div className="mt-2 flex justify-end">
+                <button
+                  type="button"
+                  className="text-xs font-medium text-[#262626] underline"
+                >
+                  Forgot Password?
+                </button>
+              </div>
             </div>
 
             <button
               type="button"
               disabled={!isPasswordValid || isLoading}
               onClick={handleSignIn}
-              className={`flex items-center justify-center rounded-[43px] py-[16px] px-[40px] font-semibold text-base           leading-[23px] font-600 w-[475px] h-[56px] ${
+              className={`flex h-[56px] w-full items-center justify-center rounded-[43px] px-10 py-4 text-base font-semibold leading-[23px] ${
                 isLoading
-                  ? "bg-[#737373] text-white cursor-not-allowed"
+                  ? "cursor-not-allowed bg-[#737373] text-white"
                   : isPasswordValid
-                    ? "bg-black text-white cursor-pointer"
+                    ? "cursor-pointer bg-black text-white"
                     : "bg-[#E5E5E5] text-[#FAFAFA]"
               }`}
             >
@@ -214,12 +228,23 @@ export default function SignInModal({ onClose }: { onClose: () => void }) {
                 <img
                   src={gradient}
                   alt="Loading"
-                  className="h-[24px] w-[24px] animate-spin"
+                  className="h-6 w-6 animate-spin"
                 />
               ) : (
                 "Sign In"
               )}
             </button>
+
+            <p className="text-center text-base leading-6 text-[#525252]">
+              Already have an account?{" "}
+              <button
+                type="button"
+                onClick={() => setStep("email")}
+                className="font-medium text-[#262626] underline"
+              >
+                Sign In
+              </button>
+            </p>
           </div>
         )}
       </div>
