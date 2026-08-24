@@ -10,10 +10,10 @@ import gradient from "../../assets/Gradient.png";
 import { useAuth } from "../../context/AuthContext";
 
 const socialButtonClass =
-  "flex w-[475px] h-[56px]           items-center justify-center gap-[16px] rounded-[43px] border-[1px] border-gray-200 py-[16px] px-[40px] text-base font-medium text-[#262626] font-500 hover:bg-gray-50";
+  "flex w-[475px] h-[56px] items-center justify-center gap-[16px] rounded-[43px] border-[1px] border-[#D4D4D4] py-[16px] px-[40px] text-base font-medium text-[#262626] font-500 hover:bg-gray-50";
 
 const nextButtonClass = (enabled: boolean) =>
-  `w-[475px] h-[56px] rounded-[43px] py-[16px] px-[40px] font-semibold text-base           leading-[23px] font-600 ${
+  `w-[475px] h-[56px] rounded-[43px] py-[16px] px-[40px] font-semibold text-base leading-[23px] font-600 ${
     enabled
       ? "bg-black text-white cursor-pointer"
       : "bg-[#E5E5E5] text-[#FAFAFA]"
@@ -21,7 +21,13 @@ const nextButtonClass = (enabled: boolean) =>
 
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-export default function SignInModal({ onClose }: { onClose: () => void }) {
+export default function SignInModal({
+  onClose,
+  onSignUp,
+}: {
+  onClose: () => void;
+  onSignUp: () => void;
+}) {
   const { signIn } = useAuth();
   const navigate = useNavigate();
 
@@ -47,12 +53,12 @@ export default function SignInModal({ onClose }: { onClose: () => void }) {
       signIn({
         firstName: "Mark",
         lastName: "Jones",
-        email,
+        email: "markjones@gmail.com",
         phone: "0811 138 6111",
         country: "Nigeria",
       });
       onClose();
-      navigate("/account");
+      navigate("/account/personal-details");
     }, 1200);
   };
 
@@ -85,14 +91,14 @@ export default function SignInModal({ onClose }: { onClose: () => void }) {
 
         {step === "email" ? (
           <>
-            <h1 className="w-[199px]           text-[23px] font-bold leading-[28px] tracking-[-0.01em] text-[#171717]">
+            <h1 className="w-[199px] text-[23px] font-bold leading-[28px] tracking-[-0.01em] text-[#171717]">
               Sign in to Shoppii
             </h1>
 
             <div>
               <label
                 htmlFor="modal-email"
-                className="mb-1 block h-5 w-[475px]           text-sm font-medium leading-5 tracking-normal text-[#525252]"
+                className="mb-1 block h-5 w-[475px] text-sm font-[500] font-medium leading-5 tracking-normal text-[#525252]"
               >
                 Email Address
               </label>
@@ -105,7 +111,7 @@ export default function SignInModal({ onClose }: { onClose: () => void }) {
                   if (e.key === "Enter") handleNext();
                 }}
                 placeholder="Enter email address"
-                className="h-[56px] w-[475px] rounded-xl border border-gray-200 px-4 py-3.5 text-sm outline-none focus:ring-2 focus:ring-black/10"
+                className="h-[56px] w-[475px] rounded-[12px] border border-[#D4D4D4] px-[16px] py-[14px] text-base outline-none "
               />
             </div>
 
@@ -119,9 +125,9 @@ export default function SignInModal({ onClose }: { onClose: () => void }) {
             </button>
 
             <div className="flex items-center gap-3 m-auto text-xs text-gray-400">
-              <div className="w-[195px] h-[2px] bg-gray-200" />
+              <div className="w-[195px] h-[2px] bg-[#E5E5E5]" />
               OR
-              <div className="w-[195px] h-[2px] bg-gray-200" />
+              <div className="w-[195px] h-[2px] bg-[#E5E5E5]" />
             </div>
             <div className="flex flex-col gap-[10px]">
               <button type="button" className={socialButtonClass}>
@@ -133,15 +139,12 @@ export default function SignInModal({ onClose }: { onClose: () => void }) {
                 Continue with Apple
               </button>
             </div>
-            <p className=" flex gap-[4px]  justify-center font-['DM_Sans'] font-400 leading-[24px]  text-base text-[#262626]">
+            <p className=" flex gap-[4px]  justify-center    font-400 leading-[24px]  text-base text-[#262626]">
               New to Shoppii?
               <a
                 href="#"
-                onClick={(e) => {
-                  e.preventDefault();
-                  navigate("/signup");
-                }}
-                className="text-base font-['DM_Sans'] font-500 leading-[24px] text-[#262626] underline"
+                onClick={onSignUp}
+                className="text-base    font-500 font-medium leading-[24px] text-[#262626] underline"
               >
                 Create an account
               </a>

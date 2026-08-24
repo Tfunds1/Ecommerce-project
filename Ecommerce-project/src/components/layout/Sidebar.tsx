@@ -11,6 +11,7 @@ import userLineIcon from "../../assets/icons/ri_user-line.png";
 import { useCart } from "../../context/CartContext";
 import { useAuth } from "../../context/AuthContext";
 import SignInModal from "../auth/SignInModal";
+import SignUpModal from "../auth/SignUpModal";
 
 type NavItem = {
   label: string;
@@ -30,7 +31,7 @@ export default function Sidebar() {
   const navigate = useNavigate();
   const { itemCount } = useCart();
   const { user } = useAuth();
-  const [authOpen, setAuthOpen] = useState(false);
+  const [authOpen, setAuthOpen] = useState<"signin" | "signup" | null>(null);
 
   return (
     <aside className="sticky top-0 flex h-screen w-[99px] shrink-0 flex-col items-center border-r border-gray-100 px-[16px] py-[24px]">
@@ -89,7 +90,7 @@ export default function Sidebar() {
       ) : (
         <button
           type="button"
-          onClick={() => setAuthOpen(true)}
+          onClick={() => setAuthOpen("signin")}
           className="mt-auto flex cursor-pointer flex-col items-center gap-1.5"
         >
           <img src={userLineIcon} alt="" className="w-[24px] h-[24px]" />
@@ -99,7 +100,16 @@ export default function Sidebar() {
         </button>
       )}
 
-      {authOpen && <SignInModal onClose={() => setAuthOpen(false)} />}
+      {authOpen === "signin" && (
+        <SignInModal
+          onClose={() => setAuthOpen(null)}
+          onSignUp={() => setAuthOpen("signup")}
+        />
+      )}
+
+      {authOpen === "signup" && (
+        <SignUpModal onClose={() => setAuthOpen(null)} />
+      )}
     </aside>
   );
 }
