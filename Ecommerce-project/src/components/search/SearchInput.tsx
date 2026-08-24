@@ -13,8 +13,10 @@ const suggestions = [
 
 export default function SearchInput({
   className = "",
+  showSuggestions = false,
 }: {
   className?: string;
+  showSuggestions?: boolean;
 }) {
   const navigate = useNavigate();
   const [query, setQuery] = useState("");
@@ -33,8 +35,16 @@ export default function SearchInput({
         type="text"
         value={query}
         onChange={(event) => setQuery(event.target.value)}
-        onFocus={() => setIsOpen(true)}
-        onBlur={() => setIsOpen(false)}
+        onFocus={() => {
+          if (showSuggestions) {
+            setIsOpen(true);
+          }
+        }}
+        onBlur={() => {
+          if (showSuggestions) {
+            setIsOpen(false);
+          }
+        }}
         onKeyDown={(event) => {
           if (event.key === "Enter") {
             event.preventDefault();
@@ -55,13 +65,13 @@ export default function SearchInput({
         className="absolute right-2 top-1/2 flex h-[48px] w-[48px] -translate-y-1/2 cursor-pointer items-center justify-center rounded-full bg-[#262626] "
       >
         <img
-          src={isOpen ? arrowUpIcon : searchIcon}
+          src={showSuggestions && isOpen ? arrowUpIcon : searchIcon}
           alt=""
           className="h-[20px] w-[20px] brightness-0 invert"
         />
       </button>
 
-      {isOpen && (
+      {isOpen && showSuggestions && (
         <div className="absolute  z-10 flex h-[176px] w-full flex-col gap-[10px] overflow-hidden rounded-b-[24px] border-b border-l border-r  border-[#E5E5E5] bg-white pb-[24px] pt-[8px] text-left shadow-[0px_10px_40px_-10px_#0000001A]">
           {suggestions.map((suggestion) => (
             <button
