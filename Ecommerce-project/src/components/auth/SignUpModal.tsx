@@ -7,7 +7,6 @@ import arrowDown from "../../assets/icons/ri_arrow-down-s-line.svg";
 import eyeIcon from "../../assets/icons/ri_eye-line.svg";
 import flagNigeria from "../../assets/icons/twemoji_flag-nigeria.svg";
 import { createPortal } from "react-dom";
-import { useNavigate } from "react-router-dom";
 
 import { useState, type FormEvent } from "react";
 
@@ -35,7 +34,7 @@ export default function SignUpModal({
   const [email, setEmail] = useState("");
   const [step, setStep] = useState<"email" | "details">("email");
   const isEmailValid = emailRegex.test(email);
-  const navigate = useNavigate();
+
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [mobileNumber, setMobileNumber] = useState("");
@@ -145,7 +144,7 @@ export default function SignUpModal({
           <>
             <button
               type="button"
-              onClick={() => navigate(-1)}
+              onClick={() => setStep("email")}
               className="flex items-center gap-2 w-[475px] h-[24px] cursor-pointer"
             >
               <img src={arrowLeft} alt="" className="w-[24px] h-[24px]" />
