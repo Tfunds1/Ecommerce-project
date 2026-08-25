@@ -2,11 +2,16 @@ import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 
 import logo from "../../assets/logos/logo.png";
-import homeIcon from "../../assets/icons/ri_home-5-fill.png";
-import exploreIcon from "../../assets/icons/ri_apps-2-line.png";
-import cartIcon from "../../assets/icons/ri_shopping-cart-line.png";
-import offersIcon from "../../assets/icons/ri_discount-percent-line.png";
-import wishlistIcon from "../../assets/icons/ri_heart-3-line.png";
+import homeline from "../../assets/icons/ri_home-5-line.svg";
+import homeFill from "../../assets/icons/ri_home-5-fill.svg";
+import exploreLine from "../../assets/icons/ri_apps-2-line.svg";
+import exploreFill from "../../assets/icons/ri_apps-2-fill.svg";
+import cartLine from "../../assets/icons/ri_shopping-cart-line.svg";
+import cartFill from "../../assets/icons/ri_shopping-cart-fill.svg";
+import offersLine from "../../assets/icons/ri_discount-percent-line.svg";
+import offersFill from "../../assets/icons/ri_discount-percent-fill.svg";
+import heartLine from "../../assets/icons/ri_heart-3-line.svg";
+import heartFill from "../../assets/icons/ri_heart-3-fill.svg";
 import userLineIcon from "../../assets/icons/ri_user-line.png";
 import { useCart } from "../../context/CartContext";
 import { useAuth } from "../../context/AuthContext";
@@ -15,16 +20,32 @@ import SignUpModal from "../auth/SignUpModal";
 
 type NavItem = {
   label: string;
-  icon: string;
+  iconLine: string;
+  iconFill: string;
   path: string;
 };
 
 const navItems: NavItem[] = [
-  { label: "Home", icon: homeIcon, path: "/" },
-  { label: "Explore", icon: exploreIcon, path: "/explore" },
-  { label: "Cart", icon: cartIcon, path: "/cart" },
-  { label: "Offers", icon: offersIcon, path: "/offers" },
-  { label: "Wishlist", icon: wishlistIcon, path: "/wishlist" },
+  { label: "Home", iconLine: homeline, iconFill: homeFill, path: "/" },
+  {
+    label: "Explore",
+    iconLine: exploreLine,
+    iconFill: exploreFill,
+    path: "/explore",
+  },
+  { label: "Cart", iconLine: cartLine, iconFill: cartFill, path: "/cart" },
+  {
+    label: "Offers",
+    iconLine: offersLine,
+    iconFill: offersFill,
+    path: "/offers",
+  },
+  {
+    label: "Wishlist",
+    iconLine: heartLine,
+    iconFill: heartFill,
+    path: "/wishlist",
+  },
 ];
 
 export default function Sidebar() {
@@ -49,13 +70,9 @@ export default function Sidebar() {
             {({ isActive }) => (
               <>
                 <img
-                  src={item.icon}
+                  src={isActive ? item.iconFill : item.iconLine}
                   alt=""
-                  className={`h-[24px] w-[24px] transition-[filter,opacity] ${
-                    isActive
-                      ? "opacity-100 [filter:brightness(0)_saturate(100%)]"
-                      : "opacity-60"
-                  }`}
+                  className="h-[24px] w-[24px] transition-opacity"
                 />
                 {item.label === "Cart" && itemCount > 0 && (
                   <span className="absolute -top-1.5 right-[-1px] flex h-[16px] w-[16px] items-center justify-center rounded-full bg-[#EF4444] text-[11px] font-[500] leading-[16px] tracking-[0.5px] text-white">

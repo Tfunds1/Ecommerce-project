@@ -2,7 +2,7 @@ import logo from "../../assets/logos/logo 2.svg";
 import arrowLeft from "../../assets/icons/ri_arrow-left-s-line.svg";
 import paystackIcon from "../../assets/icons/simple-icons_applepay.png";
 import bankIcon from "../../assets/icons/ri_bank-card-line.png";
-import cardIcon from "../../assets/icons/ri_shopping-cart-line.png";
+import cartIcon from "../../assets/icons/ri_shopping-cart-line.svg";
 import arrowDown from "../../assets/icons/ri_arrow-down-s-line.svg";
 import { useNavigate } from "react-router-dom";
 import OrderSummary from "../Cart/OrderSummary";
@@ -90,7 +90,7 @@ type PaymentMethod = {
 const PAYMENT_METHODS: PaymentMethod[] = [
   { id: "paystack", label: "Paystack", icon: paystackIcon },
   { id: "bank-transfer", label: "Bank Transfer", icon: bankIcon },
-  { id: "card", label: "Credit Card", icon: cardIcon },
+  { id: "card", label: "Credit Card", icon: cartIcon },
 ];
 
 type CardDetails = {
