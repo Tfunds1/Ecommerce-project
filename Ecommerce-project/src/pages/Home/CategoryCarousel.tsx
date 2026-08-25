@@ -1,18 +1,38 @@
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 
-import chevron from "../../assets/icons/ri_arrow-left-s-line.svg";
+import arrowLeft from "../../assets/icons/ri_arrow-left-s-line.svg";
+import arrowRight from "../../assets/icons/ri_arrow-right-s-line.svg";
 import { categories, categoriesSecondary } from "../../data/data";
 
 export default function CategoryCarousel() {
   const categoryScrollRef = useRef<HTMLDivElement>(null);
+  const [isAtEnd, setIsAtEnd] = useState(false);
+
+  const checkScrollPosition = () => {
+    const container = categoryScrollRef.current;
+    if (!container) return;
+
+    const { scrollLeft, scrollWidth, clientWidth } = container;
+    // small buffer to account for rounding
+    const atEnd = scrollLeft + clientWidth >= scrollWidth - 5;
+    setIsAtEnd(atEnd);
+  };
+
+  useEffect(() => {
+    const container = categoryScrollRef.current;
+    if (!container) return;
+
+    checkScrollPosition();
+    container.addEventListener("scroll", checkScrollPosition);
+    return () => container.removeEventListener("scroll", checkScrollPosition);
+  }, []);
 
   const scrollCategories = () => {
     const container = categoryScrollRef.current;
-
     if (!container) return;
 
     container.scrollBy({
-      left: container.clientWidth,
+      left: isAtEnd ? -container.clientWidth : container.clientWidth,
       behavior: "smooth",
     });
   };
@@ -46,7 +66,7 @@ export default function CategoryCarousel() {
             key={`${category.label}-secondary`}
             className="flex h-[112px] w-[233px] shrink-0 items-center justify-between gap-[10px] overflow-hidden rounded-[12px] bg-[#F5F5F5] p-[16px] shadow-[0px_4px_20px_0px_#0000000A]"
           >
-            <span className="          text-base font-semibold leading-[20px] text-[#171717]">
+            <span className="text-base font-semibold leading-[20px] text-[#171717]">
               {category.label}
             </span>
             <img
@@ -61,10 +81,12 @@ export default function CategoryCarousel() {
       <button
         type="button"
         onClick={scrollCategories}
-        aria-label="Scroll categories right"
+        aria-label={
+          isAtEnd ? "Scroll categories left" : "Scroll categories right"
+        }
         className="absolute right-[50px] top-1/2 flex h-[48px] w-[48px] -translate-y-1/2 translate-x-1/2 cursor-pointer items-center justify-center rounded-full border border-[#E5E5E5] bg-white shadow-[0px_2px_4px_0px_#0000000D]"
       >
-        <img src={chevron} alt="" className="h-[24px] w-[24px]" />
+        <img src={isAtEnd ? arrowLeft : arrowRight} alt="" />
       </button>
     </div>
   );

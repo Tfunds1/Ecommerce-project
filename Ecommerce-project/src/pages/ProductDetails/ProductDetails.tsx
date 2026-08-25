@@ -12,7 +12,7 @@ import earpodImage4 from "../../assets/images/Image Area (4).png";
 import heartIcon from "../../assets/icons/ri_heart-3-line.png";
 import addIcon from "../../assets/icons/ri_add-line.png";
 import substractIcon from "../../assets/icons/ri_subtract-line.png";
-import vector from "../../assets/icons/Vector.png";
+import arrowRight from "../../assets/icons/ri_arrow-right-s-line.svg";
 import { useCart } from "../../context/CartContext";
 import { useWishlist } from "../Wishlist/WishlistContext";
 // import { useRecentlyViewed } from "../../components/RecentlyViewed.tsx/RecentlyViewedContext";
@@ -62,6 +62,10 @@ export default function ProductDetails() {
     setSelectedImage(product?.image);
   }, [product?.image]);
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [id]);
+
   const relatedProducts = useMemo(
     () => products.filter((p) => p.id !== id),
     [id],
@@ -104,13 +108,13 @@ export default function ProductDetails() {
             <Link to="/home" className="hover:text-[#171717]">
               Home
             </Link>
-            <img src={vector} alt="" className="text-[#737373]" />
+            <img src={arrowRight} alt="" className="text-[#737373]" />
             <Link to="/search" className="hover:text-[#171717]">
               Search
             </Link>
             {product.category && (
               <>
-                <img src={vector} alt="" className="text-[#737373]" />
+                <img src={arrowRight} alt="" className="text-[#737373]" />
                 <Link
                   to={`/search?q=${encodeURIComponent(product.category)}`}
                   className="hover:text-[#171717]"
@@ -119,7 +123,7 @@ export default function ProductDetails() {
                 </Link>
               </>
             )}
-            <img src={vector} alt="" className="text-[#737373]" />
+            <img src={arrowRight} alt="" className="text-[#737373]" />
             <span className="text-[#171717]">{product.title}</span>
           </nav>
 
