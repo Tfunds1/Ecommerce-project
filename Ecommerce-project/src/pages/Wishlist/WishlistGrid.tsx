@@ -14,10 +14,10 @@ export default function WishlistGrid() {
   );
 
   return (
-    <div className="flex w-[1341px] bg-[#FFFFFF]">
+    <div className="flex  bg-[#FFFFFF]">
       <Sidebar />
 
-      <div className="p-[40px] flex flex-col gap-[24px]">
+      <div className="mx-auto p-[40px] flex flex-col gap-[24px] w-[1335px]">
         <h1 className="mb-[16px] font-[700] font-bold text-[23px] leading-[28px] tracking-[-0.01] text-[#262626]  ">
           Wishlist
         </h1>
