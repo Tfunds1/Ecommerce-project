@@ -30,6 +30,7 @@ function App() {
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/account" element={<AccountLayout />}>
             <Route path="personal-details" element={<PersonalDetails />} />
+            <Route path="orders" />
             <Route path="recently-viewed" element={<RecentlyViewed />} />
             <Route path="wishlist" element={<Wishlist />} />
             <Route path="addresses" element={<Addresses />} />
