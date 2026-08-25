@@ -3,6 +3,7 @@ import { products, type Product } from "../../data/products";
 import { useWishlist } from "./WishlistContext";
 import WishlistCard from "./WishlistCard";
 import { useNavigate } from "react-router-dom";
+import SearchInput from "../../components/search/SearchInput";
 
 export default function WishlistGrid() {
   const navigate = useNavigate();
@@ -44,6 +45,9 @@ export default function WishlistGrid() {
             ))}
           </div>
         )}
+      </div>
+      <div className="fixed  bottom-10 left-1/2 -translate-x-1/2 ">
+        <SearchInput />
       </div>
     </div>
   );

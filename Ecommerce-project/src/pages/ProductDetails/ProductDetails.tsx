@@ -15,6 +15,7 @@ import substractIcon from "../../assets/icons/ri_subtract-line.png";
 import vector from "../../assets/icons/Vector.png";
 import { useCart } from "../../context/CartContext";
 import { useWishlist } from "../Wishlist/WishlistContext";
+// import { useRecentlyViewed } from "../../components/RecentlyViewed.tsx/RecentlyViewedContext";
 
 export default function ProductDetails() {
   const thumb =
@@ -29,10 +30,14 @@ export default function ProductDetails() {
   const [showFullDescription, setShowFullDescription] = useState(false);
   const navigate = useNavigate();
 
-  // NOTE: these 4 thumbnails are hardcoded imports, not per-product data.
-  // Real fix: add an `images: string[]` field to Product in data/products.ts
-  // and map over product.images here instead. Using product.image + these
-  // 4 placeholders so the gallery works today without a data model change.
+  // const { addRecentlyViewed } = useRecentlyViewed();
+
+  // useEffect(() => {
+  //   if (product?.id) {
+  //     addRecentlyViewed(product.id);
+  //   }
+  // }, [product?.id]);
+
   const galleryImages = useMemo(
     () =>
       product

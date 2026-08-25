@@ -270,6 +270,7 @@ export default function SignUpModal({
               <button
                 type="submit"
                 disabled={!isFormValid}
+                onClick={onClose}
                 className={`mt-[24px]  h-[56px] w-[475px] rounded-[43px]   text-base font-[600] px-[40px] py-[16px] leading-[24px] ${
                   isFormValid
                     ? "bg-black text-white cursor-pointer"

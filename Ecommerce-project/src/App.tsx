@@ -14,6 +14,7 @@ import SavedCards from "./pages/Account/SavedCards";
 import OffersGrid from "./pages/Offers/OffersGrid";
 import { WishlistProvider } from "./pages/Wishlist/WishlistContext";
 import WishlistGrid from "./pages/Wishlist/WishlistGrid";
+import ExploreGrid from "./pages/Explore/ExploreGrid";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
 
           <Route path="/search" element={<SearchResults />} />
           <Route path="/product/:id" element={<ProductDetails />} />
+          <Route path="/explore" element={<ExploreGrid />}></Route>
           <Route path="/cart" element={<Cart />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/account" element={<AccountLayout />}>

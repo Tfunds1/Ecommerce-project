@@ -10,6 +10,12 @@ import babyToddlerImg2 from "../assets/category2/baby's wear img.png";
 import beautyImg2 from "../assets/category2/beauty img.png";
 import healthImg2 from "../assets/category2/health img.png";
 
+import toysImg from "../assets/explore-category/toys.png";
+import sportsImg from "../assets/explore-category/sports.png";
+import homeImg from "../assets/explore-category/home.png";
+import mobileImg from "../assets/explore-category/mobile.png";
+import electronicsImg from "../assets/explore-category/electronics.png";
+
 export type Category = {
   label: string;
   image: string;
@@ -29,4 +35,12 @@ export const categoriesSecondary: Category[] = [
   { label: "Baby & Toddler", image: babyToddlerImg2 },
   { label: "Beauty", image: beautyImg2 },
   { label: "Health & Wellness", image: healthImg2 },
+];
+
+export const exploreCategories: Category[] = [
+  { label: "Toy & Games", image: toysImg },
+  { label: "Sports", image: sportsImg },
+  { label: "Home", image: homeImg },
+  { label: "Mobile", image: mobileImg },
+  { label: "Electronics", image: electronicsImg },
 ];

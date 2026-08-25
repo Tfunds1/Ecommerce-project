@@ -7,7 +7,14 @@ export default function CategoryCarousel() {
   const categoryScrollRef = useRef<HTMLDivElement>(null);
 
   const scrollCategories = () => {
-    categoryScrollRef.current?.scrollBy({ left: 300, behavior: "smooth" });
+    const container = categoryScrollRef.current;
+
+    if (!container) return;
+
+    container.scrollBy({
+      left: container.clientWidth,
+      behavior: "smooth",
+    });
   };
 
   return (
@@ -20,14 +27,15 @@ export default function CategoryCarousel() {
           <button
             key={category.label}
             type="button"
-            className="relative shrink-0 cursor-pointer overflow-hidden rounded-xl text-left shadow-[0px_4px_20px_0px_#0000000A]"
+            className=" relative shrink-0  h-[100px] w-[242.6px] cursor-pointer overflow-hidden rounded-[12px] text-left shadow-[0px_4px_20px_0px_#0000000A]"
           >
             <img
               src={category.image}
               alt={category.label}
-              className="h-[100px] w-[242.6px] rounded-xl object-cover"
+              className="absolute inset-0 h-full w-full object-cover"
             />
-            <span className="absolute bottom-3 left-4           text-xl font-semibold leading-[24px] text-white">
+            <div className="absolute inset-0 bg-[linear-gradient(0deg,rgba(0,0,0,0.4)_0%,rgba(0,0,0,0)_100%)]" />
+            <span className="absolute bottom-3 left-4  text-xl font-semibold leading-[24px] text-white">
               {category.label}
             </span>
           </button>

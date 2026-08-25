@@ -19,7 +19,7 @@ export default function AccountLayout() {
     <div className=" flex min-h-screen bg-white">
       <Sidebar />
 
-      <main className="px-[120px] py-[64px]">
+      <main className="w-[1336px] min-h-[900px] px-[120px] py-[64px]">
         <div className="flex max-w-[1090px] gap-[88px]">
           <div className="flex w-[222px] flex-col gap-[32px]">
             <h1 className="text-[28px] font-semibold leading-[36px] text-[#171717]">
@@ -62,10 +62,10 @@ export default function AccountLayout() {
             <Outlet />
           </div>
         </div>
+        <div className="fixed  bottom-10 left-1/2 -translate-x-1/2 ">
+          <SearchInput />
+        </div>
       </main>
-      <div className="fixed  bottom-10 left-1/2 -translate-x-1/2 ">
-        <SearchInput />
-      </div>
     </div>
   );
 }
