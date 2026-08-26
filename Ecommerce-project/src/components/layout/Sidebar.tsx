@@ -80,7 +80,7 @@ export default function Sidebar() {
                   </span>
                 )}
                 <span
-                  className={`          text-[14px] leading-[20px] ${
+                  className={`text-[14px] leading-[20px] ${
                     isActive
                       ? "font-semibold text-[#171717]"
                       : "font-medium text-[#525252]"

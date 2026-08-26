@@ -5,6 +5,9 @@ import { currency } from "../../data/products";
 import { useCart } from "../../context/CartContext";
 import OrderSummary from "../Cart/OrderSummary";
 
+import addLine from "../../assets/icons/ri_add-line.svg";
+import disabledSubstractLine from "../../assets/icons/ri_subtract-line.svg";
+import substractLine from "../../assets/icons/ri_subtract-fill.svg";
 import heartIcon from "../../assets/icons/ri_heart-3-line.png";
 import deleteBinIcon from "../../assets/icons/ri_delete-bin-6-line.png";
 
@@ -66,10 +69,22 @@ export default function Cart() {
                             onClick={() =>
                               updateQuantity(line.lineId, line.quantity - 1)
                             }
-                            className=" w-[28px] h-[28px] cursor-pointer           rounded-full text-base font-medium text-[#A3A3A3] bg-[#FFFFFF]"
                             disabled={line.quantity <= 1}
+                            className={`w-[28px] h-[28px] flex items-center justify-center rounded-full text-base font-medium  bg-[#FFFFFF] ${
+                              line.quantity > 1
+                                ? "cursor-pointer"
+                                : "cursor-not-allowed"
+                            }`}
                           >
-                            −
+                            <img
+                              src={
+                                line.quantity > 1
+                                  ? substractLine
+                                  : disabledSubstractLine
+                              }
+                              alt=""
+                              className="w-[10px] h-[2px]"
+                            />
                           </button>
 
                           <span className="w-4 text-center           text-sm font-medium text-[#171717]">
@@ -80,9 +95,9 @@ export default function Cart() {
                             onClick={() =>
                               updateQuantity(line.lineId, line.quantity + 1)
                             }
-                            className="w-[28px] h-[28px] cursor-pointer           rounded-full text-base font-medium text-[#2626263] bg-[#FFFFFF]"
+                            className="w-[28px] h-[28px] cursor-pointer flex items-center justify-center          rounded-full text-base font-medium text-[#2626263] bg-[#FFFFFF]"
                           >
-                            +
+                            <img src={addLine} alt="" className="w-[10px]" />
                           </button>
                         </div>
 

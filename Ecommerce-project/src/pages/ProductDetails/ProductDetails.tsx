@@ -10,8 +10,9 @@ import earpodImage2 from "../../assets/images/Image Area (2).png";
 import earpodImage3 from "../../assets/images/Image Area (3).png";
 import earpodImage4 from "../../assets/images/Image Area (4).png";
 import heartIcon from "../../assets/icons/ri_heart-3-line.png";
-import addIcon from "../../assets/icons/ri_add-line.png";
-import substractIcon from "../../assets/icons/ri_subtract-line.png";
+import addLine from "../../assets/icons/ri_add-line.svg";
+import disabledSubstractLine from "../../assets/icons/ri_subtract-line.svg";
+import substractLine from "../../assets/icons/ri_subtract-fill.svg";
 import arrowRight from "../../assets/icons/ri_arrow-right-s-line.svg";
 import { useCart } from "../../context/CartContext";
 import { useWishlist } from "../Wishlist/WishlistContext";
@@ -24,6 +25,7 @@ export default function ProductDetails() {
 
   const { addItem } = useCart();
   const { isInWishlist, toggleWishlist } = useWishlist();
+
   const product = useMemo(() => products.find((p) => p.id === id), [id]);
 
   const [quantity, setQuantity] = useState(1);
@@ -199,10 +201,14 @@ export default function ProductDetails() {
                   <button
                     type="button"
                     onClick={() => setQuantity((q) => Math.max(1, q - 1))}
-                    className="cursor-pointer w-[32px] h-[32px]  p-[4px] rounded-full  font-medium text-[#A3A3A3] bg-[#FFFFFF] "
+                    className={`flex items-center justify-center  w-[32px] h-[32px]  p-[4px] rounded-full  font-medium  bg-[#FFFFFF] ${quantity > 1 ? "cursor-pointer" : "cursor-not-allowed"} `}
                     disabled={quantity <= 1}
                   >
-                    <img src={substractIcon} alt="" />
+                    <img
+                      src={quantity > 1 ? substractLine : disabledSubstractLine}
+                      alt=""
+                      className="w-[14px]"
+                    />
                   </button>
                   <span className="w-4 text-center   text-sm font-medium text-[#171717]">
                     {quantity}
@@ -210,9 +216,9 @@ export default function ProductDetails() {
                   <button
                     type="button"
                     onClick={() => setQuantity((q) => q + 1)}
-                    className="cursor-pointer w-[32px] h-[32px]  p-[4px] rounded-full  font-medium text-[#A3A3A3] bg-[#FFFFFF] "
+                    className=" flex items-center justify-center cursor-pointer w-[32px] h-[32px]  p-[4px] rounded-full  font-medium  bg-[#FFFFFF] "
                   >
-                    <img src={addIcon} alt="" />
+                    <img src={addLine} alt="" />
                   </button>
                 </div>
               </div>
