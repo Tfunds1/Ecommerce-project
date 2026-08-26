@@ -58,10 +58,9 @@ export default function ProductDetails() {
     product?.image,
   );
 
-  // Reset the selected image whenever the product itself changes
-  // (e.g. navigating from one product's page straight to another's).
   useEffect(() => {
     setSelectedImage(product?.image);
+    setQuantity(1);
   }, [product?.image]);
 
   useEffect(() => {
@@ -264,8 +263,7 @@ export default function ProductDetails() {
               </div>
             </div>
           </div>
-
-          <div className="fixed  bottom-10 left-1/2 -translate-x-1/2 ">
+          <div className="flex justify-center">
             <SearchInput />
           </div>
 
