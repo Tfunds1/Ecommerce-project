@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import wishlistIcon from "../../assets/icons/ri_heart-3-fill.png";
+import wishlistFillIcon from "../../assets/icons/ri_heart-4-fill.svg";
 import { currency, type Product } from "../../data/products";
 import Stars from "../../components/product/Stars";
 import { useWishlist } from "./WishlistContext";
@@ -21,7 +21,7 @@ export default function WishlistCard({ product }: { product: Product }) {
           aria-label="Remove from wishlist"
           className="absolute right-[10px] top-[10px] z-10 flex h-[32px] w-[32px] items-center justify-center rounded-full bg-[#F97316] text-white cursor-pointer"
         >
-          <img src={wishlistIcon} alt="" />
+          <img src={wishlistFillIcon} alt="" className="text-[#FAFAFA]" />
         </button>
 
         <Link

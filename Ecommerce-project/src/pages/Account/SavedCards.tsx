@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-import moreIcon from "../../assets/icons/ri_more-fill.png";
-import masterCardLogo from "../../assets/logos/logos_mastercard.png";
+import moreFillIcon from "../../assets/icons/ri_more-fill.svg";
+import masterCardLogo from "../../assets/logos/logos_mastercard.svg";
 
 const inputCls =
   "h-12 w-full rounded-[12px] border border-[#D4D4D4] px-[16px] py-[14px] font-[400] text-base text-[#171717] outline-none focus:border-[#171717] leading-[24px]";
@@ -164,7 +164,7 @@ export default function SavedCards() {
                 // aria-expanded={isOpen}
                 className="cursor-pointer"
               >
-                <img src={moreIcon} alt="" className="w-[24px] h-[24px]" />
+                <img src={moreFillIcon} alt="" className="w-[24px] h-[24px]" />
               </button>
             )}
           </div>
@@ -297,7 +297,7 @@ export default function SavedCards() {
         // aria-expanded={isOpen}
         className="cursor-pointer"
       >
-        <img src={moreIcon} alt="" className="w-[24px] h-[24px]" />
+        <img src={moreFillIcon} alt="" className="w-[24px] h-[24px]" />
       </button>
     </div>
   </div>

@@ -12,7 +12,7 @@ import offersLine from "../../assets/icons/ri_discount-percent-line.svg";
 import offersFill from "../../assets/icons/ri_discount-percent-fill.svg";
 import heartLine from "../../assets/icons/ri_heart-3-line.svg";
 import heartFill from "../../assets/icons/ri_heart-3-fill.svg";
-import userLineIcon from "../../assets/icons/ri_user-line.png";
+import userLineIcon from "../../assets/icons/ri_user-line.svg";
 import { useCart } from "../../context/CartContext";
 import { useAuth } from "../../context/AuthContext";
 import SignInModal from "../auth/SignInModal";
@@ -110,7 +110,7 @@ export default function Sidebar() {
           onClick={() => setAuthOpen("signin")}
           className="mt-auto flex cursor-pointer flex-col items-center gap-1.5"
         >
-          <img src={userLineIcon} alt="" className="w-[24px] h-[24px]" />
+          <img src={userLineIcon} alt="" className="w-[16px] h-[21px]" />
           <span className="          text-sm font-[400] text-[#525252] leading-[20px]">
             Sign in
           </span>

@@ -1,7 +1,7 @@
 import { categories } from "../../data/data";
 import { exploreCategories } from "../../data/data";
 import Sidebar from "../../components/layout/Sidebar";
-import arrowRight from "../../assets/icons/ri_arrow-right-s-line.png";
+import arrowRight from "../../assets/icons/ri_arrow-right-s-line.svg";
 import ExploreCard from "./ExploreCard";
 import SearchInput from "../../components/search/SearchInput";
 

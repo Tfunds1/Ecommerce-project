@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import moreIcon from "../../assets/icons/ri_more-fill.png";
+import moreFillIcon from "../../assets/icons/ri_more-fill.svg";
 import arrowDown from "../../assets/icons/ri_arrow-down-s-line.svg";
 
 const text = "font-[500] text-sm leading-[20px] text-[#525252]";
@@ -179,7 +179,7 @@ export default function Addresses() {
                 aria-expanded={isOpen}
                 className="cursor-pointer"
               >
-                <img src={moreIcon} alt="" className="w-[24px] h-[24px]" />
+                <img src={moreFillIcon} alt="" className="w-[24px] h-[24px]" />
               </button>
             )}
           </div>

@@ -9,7 +9,7 @@ import earpodImage1 from "../../assets/images/Image Area (1).png";
 import earpodImage2 from "../../assets/images/Image Area (2).png";
 import earpodImage3 from "../../assets/images/Image Area (3).png";
 import earpodImage4 from "../../assets/images/Image Area (4).png";
-import heartIcon from "../../assets/icons/ri_heart-3-line.png";
+import heartLineIcon from "../../assets/icons/ri_heart-3-line.svg";
 import addLine from "../../assets/icons/ri_add-line.svg";
 import disabledSubstractLine from "../../assets/icons/ri_subtract-line.svg";
 import substractLine from "../../assets/icons/ri_subtract-fill.svg";
@@ -253,7 +253,7 @@ export default function ProductDetails() {
                   }`}
                 >
                   <img
-                    src={heartIcon}
+                    src={heartLineIcon}
                     alt=""
                     className={`h-5 w-5 transition-colors ${
                       isWishlisted ? "fill-red-500" : "fill-[#171717]"

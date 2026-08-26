@@ -8,8 +8,8 @@ import OrderSummary from "../Cart/OrderSummary";
 import addLine from "../../assets/icons/ri_add-line.svg";
 import disabledSubstractLine from "../../assets/icons/ri_subtract-line.svg";
 import substractLine from "../../assets/icons/ri_subtract-fill.svg";
-import heartIcon from "../../assets/icons/ri_heart-3-line.png";
-import deleteBinIcon from "../../assets/icons/ri_delete-bin-6-line.png";
+import heartLineIcon from "../../assets/icons/ri_heart-3-line.svg";
+import deleteBinLineIcon from "../../assets/icons/ri_delete-bin-6-line.svg";
 
 export default function Cart() {
   const { lines, updateQuantity, removeLine } = useCart();
@@ -104,7 +104,7 @@ export default function Cart() {
                         <div className="flex items-center gap-3           leading-[20px] text-xs font-medium text-[#404040]">
                           <div className="flex gap-[4px]">
                             <img
-                              src={heartIcon}
+                              src={heartLineIcon}
                               alt=""
                               className="w-[18px] h-[18px]"
                             />
@@ -118,7 +118,7 @@ export default function Cart() {
                           <span className="text-[#E5E5E5]">|</span>
                           <div className="flex gap-[4px]">
                             <img
-                              src={deleteBinIcon}
+                              src={deleteBinLineIcon}
                               alt=""
                               className="w-[18px] h-[18px]"
                             />

@@ -1,9 +1,10 @@
 import logo from "../../assets/logos/logo 2.svg";
 import arrowLeft from "../../assets/icons/ri_arrow-left-s-line.svg";
-import paystackIcon from "../../assets/icons/simple-icons_applepay.png";
-import bankIcon from "../../assets/icons/ri_bank-card-line.png";
-import cartIcon from "../../assets/icons/ri_shopping-cart-line.svg";
+import paystackIcon from "../../assets/icons/simple-icons_applepay.svg";
+import bankIcon from "../../assets/icons/ri_bank-line.svg";
+import cardIcon from "../../assets/icons/ri_bank-card-line.svg";
 import arrowDown from "../../assets/icons/ri_arrow-down-s-line.svg";
+import questionLineIcon from "../../assets/icons/ri_question-line.svg";
 import { useNavigate } from "react-router-dom";
 import OrderSummary from "../Cart/OrderSummary";
 import { useState } from "react";
@@ -90,7 +91,7 @@ type PaymentMethod = {
 const PAYMENT_METHODS: PaymentMethod[] = [
   { id: "paystack", label: "Paystack", icon: paystackIcon },
   { id: "bank-transfer", label: "Bank Transfer", icon: bankIcon },
-  { id: "card", label: "Credit Card", icon: cartIcon },
+  { id: "card", label: "Credit Card", icon: cardIcon },
 ];
 
 type CardDetails = {
@@ -668,12 +669,11 @@ export default function Checkout() {
                                         }
                                         className={`${inputCls} pr-11 placeholder:text-[#A3A3A3]`}
                                       />
-                                      <span
-                                        title="The 3-digit code on the back of your card"
-                                        className="absolute right-4 top-1/2 flex h-5 w-5 -translate-y-1/2 cursor-help items-center justify-center rounded-full border border-[#A3A3A3]      text-[11px] text-[#737373]"
-                                      >
-                                        ?
-                                      </span>
+                                      <img
+                                        src={questionLineIcon}
+                                        alt=""
+                                        className="absolute right-4 top-1/2 -translate-y-1/2 cursor-help"
+                                      />
                                     </div>
                                   </div>
                                 </div>

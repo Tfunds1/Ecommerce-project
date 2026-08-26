@@ -1,6 +1,6 @@
 import chevronDown from "../../assets/icons/ri_arrow-down-s-line.svg";
 
-import filterIcon from "../../assets/icons/ri_filter-3-fill.png";
+import filterFillIcon from "../../assets/icons/ri_filter-3-fill.svg";
 import SearchInput from "../../components/search/SearchInput";
 import Sidebar from "../../components/layout/Sidebar";
 import { products, type Product } from "../../data/products";
@@ -22,7 +22,7 @@ export default function OffersGrid() {
             className="flex cursor-pointer items-center gap-2 rounded-full border border-[#E5E5E5] px-4 py-2  text-sm font-medium text-[#171717] hover:bg-[#FAFAFA]"
           >
             All filters
-            <img src={filterIcon} alt="" className="h-[18px] w-[18px]" />
+            <img src={filterFillIcon} alt="" className="h-[18px] w-[18px]" />
           </button>
           {filterPills.map((label) => (
             <button

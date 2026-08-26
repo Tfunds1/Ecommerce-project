@@ -1,11 +1,11 @@
 import { useEffect, useState, useMemo } from "react";
 import { useSearchParams } from "react-router-dom";
-import chevronDown from "../../assets/icons/ri_arrow-down-s-line.svg";
+import arrowDownLineIcon from "../../assets/icons/ri_arrow-down-s-line.svg";
 import Sidebar from "../../components/layout/Sidebar";
 import ProductCard from "../../components/product/ProductCard";
 import SearchInput from "../../components/search/SearchInput";
 import { products } from "../../data/products";
-import filterIcon from "../../assets/icons/ri_filter-3-fill.png";
+import filterFillIcon from "../../assets/icons/ri_filter-3-fill.svg";
 
 const filterPills = [
   "Category",
@@ -60,7 +60,7 @@ export default function SearchResults() {
           {isLoading ? (
             <div className="h-7 w-64 animate-pulse rounded-full bg-[#F0F0F0]" />
           ) : (
-            <h1 className="font-['DM_Sans'] text-2xl font-bold text-[#171717]">
+            <h1 className="   text-2xl font-bold text-[#171717]">
               Results for &ldquo;{query}&rdquo;
               <span className="ml-2 font-normal text-[#737373]">
                 · {results.length} item{results.length === 1 ? "" : "s"}
@@ -82,19 +82,28 @@ export default function SearchResults() {
             <div className="flex flex-wrap items-center gap-2">
               <button
                 type="button"
-                className="flex cursor-pointer items-center gap-2 rounded-full border border-[#E5E5E5] px-4 py-2 font-['DM_Sans'] text-sm font-medium text-[#171717] hover:bg-[#FAFAFA]"
+                className="flex cursor-pointer items-center gap-2 rounded-full border border-[#E5E5E5] px-4 py-2    text-sm font-medium text-[#171717] hover:bg-[#FAFAFA]"
               >
                 All filters
-                <img src={filterIcon} alt="" className="h-[18px] w-[18px]" />
+                <img
+                  src={filterFillIcon}
+                  alt=""
+                  className="h-[9px] w-[13.5px]"
+                />
               </button>
               {filterPills.map((label) => (
                 <button
                   key={label}
                   type="button"
-                  className="flex  cursor-pointer items-center gap-1 rounded-full border border-[#E5E5E5] pr-[8px] pl-[16px] py-[8px] font-['DM_Sans'] text-sm  leading-[20px] font-medium text-[#525252] hover:bg-[#FAFAFA]"
+                  className="flex  cursor-pointer items-center gap-1 rounded-full border border-[#E5E5E5] pr-[8px] pl-[16px] py-[8px]    text-sm  leading-[20px] font-medium text-[#525252] hover:bg-[#FAFAFA] shadow [0px 2px 8px 0px #0000000F]
+ "
                 >
                   {label}
-                  <img src={chevronDown} alt="" className="h-[18px] w-[18px]" />
+                  <img
+                    src={arrowDownLineIcon}
+                    alt=""
+                    className="h-[18px] w-[18px]"
+                  />
                 </button>
               ))}
             </div>
@@ -113,7 +122,7 @@ export default function SearchResults() {
               ))}
             </div>
           ) : (
-            <p className="py-12 text-center font-['DM_Sans'] text-sm text-[#737373]">
+            <p className="py-12 text-center    text-sm text-[#737373]">
               No results found for &ldquo;{query}&rdquo;. Try a different search
               term.
             </p>
