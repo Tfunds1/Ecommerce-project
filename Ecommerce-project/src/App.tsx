@@ -15,6 +15,7 @@ import OffersGrid from "./pages/Offers/OffersGrid";
 import { WishlistProvider } from "./pages/Wishlist/WishlistContext";
 import WishlistGrid from "./pages/Wishlist/WishlistGrid";
 import ExploreGrid from "./pages/Explore/ExploreGrid";
+import OrderComfirmation from "./pages/OrderConfirmation";
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
           </Route>
           <Route path="/offers" element={<OffersGrid />} />
           <Route path="/wishlist" element={<WishlistGrid />} />
+          <Route path="/order-confirmation" element={<OrderComfirmation />} />
         </Routes>
       </BrowserRouter>
     </WishlistProvider>
