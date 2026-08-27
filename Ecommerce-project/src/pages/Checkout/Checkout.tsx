@@ -5,9 +5,10 @@ import bankIcon from "../../assets/icons/ri_bank-line.svg";
 import cardIcon from "../../assets/icons/ri_bank-card-line.svg";
 import arrowDown from "../../assets/icons/ri_arrow-down-s-line.svg";
 import questionLineIcon from "../../assets/icons/ri_question-line.svg";
+import gradient from "../../assets/Ellipse.svg";
 import { useNavigate } from "react-router-dom";
 import OrderSummary from "../Cart/OrderSummary";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 
 type ContactInfo = {
   email: string;
@@ -120,10 +121,27 @@ const formatExpiry = (v: string) =>
     .slice(0, 4)
     .replace(/(\d{2})(?=\d)/, "$1/");
 
-export default function Checkout() {
+export default function Checkout({ onClose }: { onClose: () => void }) {
   const navigate = useNavigate();
 
   const [activeStep, setActiveStep] = useState<number | null>(null);
+  const [isLoading, setIsloading] = useState(false);
+  const setTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  const handleOrder = () => {
+    setIsloading(true);
+    setPayment(paymentDraft);
+    // setActiveStep(null);
+    setTimeoutRef.current = setTimeout(() => {
+      onClose();
+    }, 1200);
+  };
+
+  useEffect(() => {
+    return () => {
+      if (setTimeoutRef.current) clearTimeout(setTimeoutRef.current);
+    };
+  }, []);
 
   const [contact, setContact] = useState<ContactInfo>({
     email: "markjones@gmail.com",
@@ -164,11 +182,11 @@ export default function Checkout() {
     setActiveStep(payment ? null : 4); // advance to payment until it's chosen
   };
 
-  const placeOrder = () => {
-    setPayment(paymentDraft);
-    setActiveStep(null);
-    console.log("order", { contact, shipping, method, payment: paymentDraft });
-  };
+  // const placeOrder = () => {
+  //   setPayment(paymentDraft);
+  //   setActiveStep(null);
+  //   console.log("order", { contact, shipping, method, payment: paymentDraft });
+  // };
 
   const selectedMethod = SHIPPING_METHODS.find((m) => m.id === method);
   const selectedPayment = PAYMENT_METHODS.find((p) => p.id === payment);
@@ -213,7 +231,12 @@ export default function Checkout() {
 
   return (
     <div className="min-h-screen bg-white">
-      <header className="h-[78px] grid grid-cols-3 items-center border-b border-[#E5E5E5]">
+      <header
+        className="h-[78px] grid grid-cols-3 items-center border-b border-[#E5E5E5] shadow-[0px 1px 4px 2px #0000000D] 
+
+backdrop-blur-[20px]
+"
+      >
         <button
           type="button"
           onClick={() => navigate(-1)}
@@ -226,7 +249,7 @@ export default function Checkout() {
         <img src={logo} alt="UD Stores" className="mx-auto h-[48px] w-[63px]" />
       </header>
 
-      <div className="grid grid-cols-1 gap-[40px] lg:grid-cols-[1fr_500px] max-w-[1440px] px-[200px] py-[40px]">
+      <div className="grid grid-cols-1 gap-[40px] lg:grid-cols-[1fr_500px] max-w-[1440px] px-[200px] py-[40px] items-start">
         <div className="flex w-[500px] flex-col gap-[24px]">
           <h1 className="     text-2xl font-bold text-[#171717]">Checkout</h1>
 
@@ -702,11 +725,25 @@ export default function Checkout() {
 
                       <button
                         type="button"
-                        onClick={placeOrder}
+                        onClick={handleOrder}
                         disabled={!paymentDraft}
-                        className="mt-2 h-[52px] w-full cursor-pointer rounded-full bg-[#171717]      text-sm font-medium text-white disabled:cursor-not-allowed disabled:opacity-40"
+                        className={`mt-2 h-[52px] flex items-center justify-center w-full cursor-pointer rounded-full bg-[#171717]      text-sm font-medium text-white disabled:cursor-not-allowed disabled:opacity-40 ${
+                          isLoading
+                            ? "cursor-not-allowed bg-[#737373] text-white"
+                            : paymentDraft
+                              ? "cursor-pointer bg-black text-white"
+                              : "bg-[#E5E5E5] text-[#FAFAFA]"
+                        }`}
                       >
-                        Place Order
+                        {isLoading ? (
+                          <img
+                            src={gradient}
+                            alt="Loading"
+                            className="h-6 w-6 animate-spin"
+                          />
+                        ) : (
+                          "Place Order"
+                        )}
                       </button>
                     </div>
                   )}

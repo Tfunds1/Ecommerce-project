@@ -6,7 +6,7 @@ import googleIcon from "../../assets/logos/logos_google-icon.svg";
 import appleIcon from "../../assets/logos/logos_apple.svg";
 import closeOutline from "../../assets/icons/ri_close-line.svg";
 import eyeIcon from "../../assets/icons/ri_eye-line.svg";
-import gradient from "../../assets/Gradient.png";
+import gradient from "../../assets/Ellipse.svg";
 import { useAuth } from "../../context/AuthContext";
 
 const socialButtonClass =

@@ -140,7 +140,7 @@ export default function Cart() {
             </div>
           )}
 
-          <div className="fixed bottom-10fixed bottom-10 left-1/2 -translate-x-1/2 ">
+          <div className="fixed  bottom-10 left-1/2 -translate-x-1/2 ">
             <SearchInput />
           </div>
         </section>
