@@ -141,13 +141,15 @@ export default function PersonalDetails() {
     signOut();
   };
 
-  const [profile, setProfile] = useState<Profile>({
-    firstName: "Mark",
-    lastName: "Jones",
-    email: "markjones@gmail.com",
-    phone: "08111386111",
-    country: "Nigeria",
-  });
+  const emptyProfile: Profile = {
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    country: "",
+  };
+
+  const [profile, setProfile] = useState<Profile>(emptyProfile);
 
   const [draftProfile, setDraftProfile] = useState<Profile>(profile);
   const [isEditing, setIsEditing] = useState(false);

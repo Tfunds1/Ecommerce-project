@@ -59,7 +59,7 @@ export default function ShippingMethodForm({
               </span>
               <span className="text-sm text-[#737373]">{m.eta}</span>
             </span>
-            <span className="ml-auto text-base font-semibold text-[#171717]">
+            <span className="ml-auto text-base font-[500] font-medium text-[#262626] leading-[24px]">
               ₦{m.price}
             </span>
           </label>

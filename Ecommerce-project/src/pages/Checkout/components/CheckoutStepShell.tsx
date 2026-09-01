@@ -1,8 +1,10 @@
+import type React from "react";
+
 type CheckoutStepShellProps = {
   number: number;
   title: string;
   isOpen: boolean;
-  summary: string[];
+  summary: React.ReactNode[];
   onEdit: () => void;
   children?: React.ReactNode; // the open form
 };
@@ -42,8 +44,8 @@ export default function CheckoutStepShell({
 
       {!isOpen && summary.length > 0 && (
         <div className="mt-1 flex flex-col gap-0.5 pl-[36px]">
-          {summary.map((line) => (
-            <p key={line} className="text-sm text-[#525252]">
+          {summary.map((line, i) => (
+            <p key={i} className="text-sm text-[#525252]">
               {line}
             </p>
           ))}

@@ -14,6 +14,7 @@ import addLine from "../../assets/icons/ri_add-line.svg";
 import disabledSubstractLine from "../../assets/icons/ri_subtract-line.svg";
 import substractLine from "../../assets/icons/ri_subtract-fill.svg";
 import arrowRight from "../../assets/icons/ri_arrow-right-s-line.svg";
+import arrowLeft from "../../assets/icons/ri_arrow-left-s-line.svg";
 import { useCart } from "../../context/CartContext";
 import { useWishlist } from "../Wishlist/WishlistContext";
 // import { useRecentlyViewed } from "../../components/RecentlyViewed.tsx/RecentlyViewedContext";
@@ -57,6 +58,27 @@ export default function ProductDetails() {
   const [selectedImage, setSelectedImage] = useState<string | undefined>(
     product?.image,
   );
+
+  const currentIndex = useMemo(
+    () => galleryImages.findIndex((img) => img === selectedImage),
+    [galleryImages, selectedImage],
+  );
+
+  const goToPrevImage = () => {
+    if (galleryImages.length === 0) return;
+    const prevIndex =
+      currentIndex <= 0 ? galleryImages.length - 1 : currentIndex - 1;
+    setSelectedImage(galleryImages[prevIndex]);
+  };
+
+  const goToNextImage = () => {
+    if (galleryImages.length === 0) return;
+    const nextIndex =
+      currentIndex === -1 || currentIndex === galleryImages.length - 1
+        ? 0
+        : currentIndex + 1;
+    setSelectedImage(galleryImages[nextIndex]);
+  };
 
   useEffect(() => {
     setSelectedImage(product?.image);
@@ -104,7 +126,7 @@ export default function ProductDetails() {
       <Sidebar />
 
       <main className="flex min-w-0 flex-1 flex-col">
-        <section className="mx-auto flex w-full max-w-[1341px] flex-col gap-10 px-[20px] py-[32px]">
+        <section className="mx-auto flex w-full max-w-[1341px] flex-col gap-[24px] px-[20px] py-[32px]">
           <nav className="flex items-center gap-1.5   text-base text-[#737373] leading-[24px] font-[400]">
             <Link to="/home" className="hover:text-[#171717]">
               Home
@@ -128,29 +150,43 @@ export default function ProductDetails() {
             <span className="text-[#171717]">{product.title}</span>
           </nav>
 
-          <div className="grid grid-cols-1 gap-10 lg:grid-cols-2">
-            <div className="flex flex-col gap-4">
-              <div className=" flex flex-col gap-[24px] ">
+          <div className="grid grid-cols-1 gap-10 lg:grid-cols-[738px_1fr]">
+            <div className=" flex flex-col gap-[24px] ">
+              <div className="flex items-center gap-[10px]">
+                <button
+                  type="button"
+                  className="cursor-pointer  w-[48px] h-[48px]  flex items-center justify-center"
+                  onClick={goToPrevImage}
+                >
+                  <img src={arrowLeft} alt="" className="w-[24px] h-[24px]  " />
+                </button>
                 <img
                   src={selectedImage}
                   alt={product.title}
-                  className="h-[320px] rounded-[8px] border border-[#E5E5E5] w-[600px] object-contain"
+                  className="h-[541px] rounded-[8px] border border-[#E5E5E5] w-[610px]  object-contain"
                 />
-                <div className="flex items-center justify-center gap-[8px]">
-                  {galleryImages.map((img, index) => (
-                    <img
-                      key={index}
-                      src={img}
-                      alt=""
-                      onClick={() => setSelectedImage(img)}
-                      className={`${thumb} ${
-                        selectedImage === img
-                          ? "border-[#171717]"
-                          : "border-[#E5E5E5] hover:border-[#A3A3A3]"
-                      }`}
-                    />
-                  ))}
-                </div>
+                <button
+                  type="button"
+                  className="cursor-pointer w-[48px] h-[48px] flex items-center justify-center"
+                  onClick={goToNextImage}
+                >
+                  <img src={arrowRight} alt="" className="w-[14px] h-[14px]" />
+                </button>
+              </div>
+              <div className="flex items-center justify-center gap-[8px]">
+                {galleryImages.map((img, index) => (
+                  <img
+                    key={index}
+                    src={img}
+                    alt=""
+                    onClick={() => setSelectedImage(img)}
+                    className={`${thumb} ${
+                      selectedImage === img
+                        ? "border-[#171717]"
+                        : "border-[#E5E5E5] hover:border-[#A3A3A3]"
+                    }`}
+                  />
+                ))}
               </div>
             </div>
 

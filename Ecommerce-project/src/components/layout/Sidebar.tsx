@@ -72,7 +72,7 @@ export default function Sidebar() {
                 <img
                   src={isActive ? item.iconFill : item.iconLine}
                   alt=""
-                  className="h-[24px] w-[24px] transition-opacity"
+                  className=" transition-opacity"
                 />
                 {item.label === "Cart" && itemCount > 0 && (
                   <span className="absolute -top-1.5 right-[-1px] flex h-[16px] w-[16px] items-center justify-center rounded-full bg-[#EF4444] text-[11px] font-[500] leading-[16px] tracking-[0.5px] text-white">

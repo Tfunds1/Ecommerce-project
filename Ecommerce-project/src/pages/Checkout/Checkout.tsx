@@ -111,8 +111,10 @@ export default function Checkout() {
                 shipping.street
                   ? [
                       `${shipping.firstName} ${shipping.lastName}`.trim(),
-                      shipping.street,
-                      `${shipping.city}, ${shipping.state}`,
+
+                      `  ${shipping.street}, ${shipping.city}, ${shipping.state}`,
+
+                      shipping.zip,
                     ]
                   : []
               }
@@ -131,7 +133,12 @@ export default function Checkout() {
               summary={
                 selectedMethod
                   ? [
-                      `${selectedMethod.label} — ₦${selectedMethod.price}`,
+                      <span>
+                        {selectedMethod.label}{" "}
+                        <span className="font-semibold text-[#404040]">
+                          ₦{selectedMethod.price}
+                        </span>
+                      </span>,
                       selectedMethod.eta,
                     ]
                   : []

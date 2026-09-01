@@ -58,7 +58,7 @@ export default function OrderSummary({
               value={discountCode}
               onChange={(event) => setDiscountCode(event.target.value)}
               placeholder="Enter code"
-              className="  rounded-[12px] border border-[#D4D4D4] px-[16px] py-[14px] font-[400]          text-base  outline-none placeholder:text-[#A3A3A3]"
+              className="  rounded-[12px] w-[310px] border border-[#A3A3A3] px-[16px] py-[14px] font-[400]          text-base  outline-none placeholder:text-[#A3A3A3]"
             />
             <button
               type="button"
