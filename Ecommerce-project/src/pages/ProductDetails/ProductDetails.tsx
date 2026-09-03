@@ -128,7 +128,7 @@ export default function ProductDetails() {
       <main className="flex min-w-0 flex-1 flex-col">
         <section className="mx-auto flex w-full max-w-[1341px] flex-col gap-[24px] px-[20px] py-[32px]">
           <nav className="flex items-center gap-1.5   text-base text-[#737373] leading-[24px] font-[400]">
-            <Link to="/home" className="hover:text-[#171717]">
+            <Link to="/" className="hover:text-[#171717]">
               Home
             </Link>
             <img src={arrowRight} alt="" className="text-[#737373]" />

@@ -17,6 +17,7 @@ import { useCart } from "../../context/CartContext";
 import { useAuth } from "../../context/AuthContext";
 import SignInModal from "../auth/SignInModal";
 import SignUpModal from "../auth/SignUpModal";
+import ResetPasswordModal from "../auth/ResetPasswordModal";
 
 type NavItem = {
   label: string;
@@ -52,7 +53,9 @@ export default function Sidebar() {
   const navigate = useNavigate();
   const { itemCount } = useCart();
   const { user } = useAuth();
-  const [authOpen, setAuthOpen] = useState<"signin" | "signup" | null>(null);
+  const [authOpen, setAuthOpen] = useState<
+    "signin" | "signup" | "reset" | null
+  >(null);
 
   return (
     <aside className="sticky top-0 flex h-screen w-[99px] shrink-0 flex-col items-center border-r border-gray-100 px-[16px] py-[24px]">
@@ -121,11 +124,19 @@ export default function Sidebar() {
         <SignInModal
           onClose={() => setAuthOpen(null)}
           onSignUp={() => setAuthOpen("signup")}
+          onForgotPassword={() => setAuthOpen("reset")}
         />
       )}
 
       {authOpen === "signup" && (
         <SignUpModal
+          onClose={() => setAuthOpen(null)}
+          onSignIn={() => setAuthOpen("signin")}
+        />
+      )}
+
+      {authOpen === "reset" && (
+        <ResetPasswordModal
           onClose={() => setAuthOpen(null)}
           onSignIn={() => setAuthOpen("signin")}
         />

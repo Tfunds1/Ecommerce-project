@@ -24,9 +24,11 @@ const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 export default function SignInModal({
   onClose,
   onSignUp,
+  onForgotPassword,
 }: {
   onClose: () => void;
   onSignUp: () => void;
+  onForgotPassword: () => void;
 }) {
   const { signIn } = useAuth();
   const navigate = useNavigate();
@@ -208,7 +210,11 @@ export default function SignInModal({
               <div className="mt-2 flex justify-end">
                 <button
                   type="button"
-                  className="text-xs font-medium text-[#262626] underline"
+                  className="text-xs font-[600] font-semibold leading-[18px] tracking-[-0.2] text-[#262626]  cursor-pointer"
+                  onClick={() => {
+                    onClose();
+                    onForgotPassword();
+                  }}
                 >
                   Forgot Password?
                 </button>

@@ -16,6 +16,7 @@ import { WishlistProvider } from "./pages/Wishlist/WishlistContext";
 import WishlistGrid from "./pages/Wishlist/WishlistGrid";
 import ExploreGrid from "./pages/Explore/ExploreGrid";
 import OrderComfirmation from "./pages/OrderConfirmation";
+// import ResetPasswordModal from "./components/auth/ResetPasswordModal";
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
           <Route path="/offers" element={<OffersGrid />} />
           <Route path="/wishlist" element={<WishlistGrid />} />
           <Route path="/order-confirmation" element={<OrderComfirmation />} />
+          {/* <Route path="/reset-password" element={<ResetPasswordModal />} /> */}
         </Routes>
       </BrowserRouter>
     </WishlistProvider>
